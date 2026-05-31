@@ -1,0 +1,24 @@
+# HTCondor submit file for Smart Office Support Agent
+# Submit with: condor_submit agent.sub
+# Interactive test: condor_submit -i agent.sub
+
+universe        = vanilla
+executable      = scripts/run_agent.sh
+arguments       =
+log             = /scratch/fkhalid/logs/agent_$(Cluster)_$(Process).log
+output          = /scratch/fkhalid/logs/agent_$(Cluster)_$(Process).out
+error           = /scratch/fkhalid/logs/agent_$(Cluster)_$(Process).err
+
+# Resources — 1 GPU as per student allocation
+request_cpus    = 4
+request_memory  = 16384
+request_gpus    = 1
+
+# Prefer H100 or A100 nodes, minimum 32GB GPU memory
+requirements    = (GPUs_GlobalMemoryMb >= 32000)
+
+# Max runtime: 2 hours
++MaxRuntime     = 7200
+
+# Only one job at a time (student limit)
+queue 1

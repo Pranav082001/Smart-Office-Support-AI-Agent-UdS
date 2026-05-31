@@ -1,0 +1,25 @@
+# Core agent framework
+langchain
+langchain-community
+langchain-groq
+langgraph
+
+# MCP protocol
+fastmcp
+langchain-mcp-adapters
+
+# APIs
+google-auth
+google-auth-oauthlib
+google-api-python-client
+notion-client
+
+# Utilities
+python-dotenv
+pydantic
+requests
+
+# Evaluation
+scikit-learn
+pandas
+numpy

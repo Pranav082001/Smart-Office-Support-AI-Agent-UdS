@@ -1,0 +1,16 @@
+{
+  "company_name": "TechFlow GmbH",
+  "industry": "IT/Software",
+  "description": "TechFlow GmbH is a B2B software company based in Germany. We provide cloud-based project management tools to mid-size enterprises. Our support team handles billing questions, onboarding issues, and bug reports.",
+  "preferred_tone": "formal",
+  "support_email": "support@techflow.de",
+  "custom_categories": [],
+  "team_roles": {
+    "Billing & Payment": "billing-team@techflow.de",
+    "Technical / IT Problems": "tech-team@techflow.de",
+    "Complaints & Escalations": "manager@techflow.de",
+    "General Questions / FAQs": "support@techflow.de",
+    "Order & Delivery Issues": "support@techflow.de",
+    "Returns & Refund Requests": "billing-team@techflow.de"
+  }
+}

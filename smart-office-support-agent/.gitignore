@@ -1,0 +1,26 @@
+# Environment
+.env
+venv/
+__pycache__/
+*.pyc
+*.pyo
+
+# Credentials — never commit these
+credentials/
+*.json
+!data/company_profile.example.json
+!data/*.example.json
+
+# Cluster logs and outputs
+*.log
+*.out
+*.err
+
+# Results (large files)
+results/*.csv
+results/*.json
+
+# IDE
+.vscode/
+.idea/
+*.swp
