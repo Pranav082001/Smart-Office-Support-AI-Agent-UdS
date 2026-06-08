@@ -1,0 +1,482 @@
+[
+  {
+    "email_id": 1,
+    "from": "clark.ent@buildco.com",
+    "subject": "Order #TF-2341 not delivered",
+    "body": "We purchased 50 user licenses for your project management tool 3 days ago but still haven't received the activation code. Our team needs it for a project kickoff tomorrow morning. Please send urgently.",
+    "expected_category": "Order & delivery issues",
+    "expected_priority": "URGENT"
+  },
+  {
+    "email_id": 2,
+    "from": "sarah@logistyx.de",
+    "subject": "Missing license keys after payment",
+    "body": "Payment for order #TF-2890 went through on Monday. Still no license keys in our portal. Can you check what happened? We have 50 users waiting.",
+    "expected_category": "Order & delivery issues",
+    "expected_priority": "URGENT"
+  },
+  {
+    "email_id": 3,
+    "from": "mike.ross@legalzoom.io",
+    "subject": "Order placed but no confirmation",
+    "body": "I ordered an Enterprise plan upgrade yesterday (Order #TF-3012). No confirmation email, and the portal still shows Basic plan. Please fix asap – we need enterprise features for a demo.",
+    "expected_category": "Order & delivery issues",
+    "expected_priority": "URGENT"
+  },
+  {
+    "email_id": 4,
+    "from": "olivia@creativecloud.com",
+    "subject": "License activation delayed – order #TF-2765",
+    "body": "We purchased 10 additional user slots 24 hours ago. Still cannot assign them. This is blocking our new hires. Please resolve within 2 hours.",
+    "expected_category": "Order & delivery issues",
+    "expected_priority": "URGENT"
+  },
+  {
+    "email_id": 5,
+    "from": "peter@buildsmart.de",
+    "subject": "Wrong product delivered on order",
+    "body": "Order #TF-1982: we ordered the 'Pro Suite' but got 'Basic Suite' licenses. Please correct this. Our sprints depend on advanced reporting.",
+    "expected_category": "Order & delivery issues",
+    "expected_priority": "MEDIUM"
+  },
+  {
+    "email_id": 6,
+    "from": "linda@fintech-solutions.com",
+    "subject": "Invoice not received after order",
+    "body": "Order #TF-3100 completed on May 20. No invoice in our account. Accounts payable needs it by end of week. Can you resend?",
+    "expected_category": "Order & delivery issues",
+    "expected_priority": "LOW"
+  },
+  {
+    "email_id": 7,
+    "from": "robert@innovate.io",
+    "subject": "Order status shows 'pending' for 2 days",
+    "body": "Our order #TF-2987 still says pending. Card was charged immediately. Please advise if any problem with the order. We need the tools by Friday.",
+    "expected_category": "Order & delivery issues",
+    "expected_priority": "MEDIUM"
+  },
+  {
+    "email_id": 8,
+    "from": "julia@medrecord.de",
+    "subject": "Quantity mismatch on delivery",
+    "body": "We ordered 100 user licenses but only 75 were added to our account. Order #TF-2456. Please add the missing 25.",
+    "expected_category": "Order & delivery issues",
+    "expected_priority": "MEDIUM"
+  },
+  {
+    "email_id": 9,
+    "from": "tom@nextgen.tech",
+    "subject": "Order confirmation but no access",
+    "body": "Got confirmation for #TF-3221. But when logging in, the system says 'no active subscription'. We have a team standup in 3 hours that needs the board view. Please help.",
+    "expected_category": "Order & delivery issues",
+    "expected_priority": "URGENT"
+  },
+  {
+    "email_id": 10,
+    "from": "nina@scaleup.de",
+    "subject": "Can't find order history",
+    "body": "I need to re-download a previous invoice from order #TF-1892. But the order history page is empty. Can you email me the invoice?",
+    "expected_category": "Order & delivery issues",
+    "expected_priority": "LOW"
+  },
+  {
+    "email_id": 11,
+    "from": "alex@datadriven.com",
+    "subject": "API returns 500 error constantly",
+    "body": "Your REST API has been throwing 500 Internal Server Error for the past hour on the /tasks endpoint. We are in production. Please investigate urgently.",
+    "expected_category": "Technical / IT problems",
+    "expected_priority": "URGENT"
+  },
+  {
+    "email_id": 12,
+    "from": "ben@codebase.de",
+    "subject": "Web app extremely slow after update",
+    "body": "Since your release on June 1, loading a project takes 20+ seconds. Our team of 30 can't work efficiently. This is a critical bug for us.",
+    "expected_category": "Technical / IT problems",
+    "expected_priority": "URGENT"
+  },
+  {
+    "email_id": 13,
+    "from": "clara@analytix.com",
+    "subject": "SSO login broken for all users",
+    "body": "Our entire organization cannot log in via SAML. Getting 'authentication failed' after IdP redirect. This started 2 hours ago. Please fix asap.",
+    "expected_category": "Technical / IT problems",
+    "expected_priority": "URGENT"
+  },
+  {
+    "email_id": 14,
+    "from": "david@finwave.de",
+    "subject": "Mobile app crashes on Android",
+    "body": "When opening any project board, the Android app crashes immediately. iOS works fine. Happening on multiple devices. Please patch.",
+    "expected_category": "Technical / IT problems",
+    "expected_priority": "MEDIUM"
+  },
+  {
+    "email_id": 15,
+    "from": "emma@greenfield.energy",
+    "subject": "Reports not exporting to PDF",
+    "body": "The 'Export to PDF' button does nothing. No error, no download. Tried different browsers. Need this for client reporting by Friday.",
+    "expected_category": "Technical / IT problems",
+    "expected_priority": "MEDIUM"
+  },
+  {
+    "email_id": 16,
+    "from": "frank@logi.solutions",
+    "subject": "Webhook delivery failing",
+    "body": "Our webhook endpoint has not received any events since last week. Configuration looks correct. Can you check your side?",
+    "expected_category": "Technical / IT problems",
+    "expected_priority": "MEDIUM"
+  },
+  {
+    "email_id": 17,
+    "from": "grace@hrcloud.de",
+    "subject": "Task assignment notifications not sent",
+    "body": "When I assign a task to someone, no email notification is triggered. Team members are missing updates. Please restore.",
+    "expected_category": "Technical / IT problems",
+    "expected_priority": "MEDIUM"
+  },
+  {
+    "email_id": 18,
+    "from": "henry@buildcycle.com",
+    "subject": "Search function returns incomplete results",
+    "body": "Searching for old tasks by keyword returns only 10% of what we know exists. Index seems broken. Can you rebuild?",
+    "expected_category": "Technical / IT problems",
+    "expected_priority": "LOW"
+  },
+  {
+    "email_id": 19,
+    "from": "irene@mobility.ai",
+    "subject": "Two-factor authentication loop",
+    "body": "After entering TOTP, the page reloads and asks for TOTP again. Infinite loop. Cannot access our projects. Please help.",
+    "expected_category": "Technical / IT problems",
+    "expected_priority": "URGENT"
+  },
+  {
+    "email_id": 20,
+    "from": "jack@quantum.de",
+    "subject": "Error when uploading large CSV",
+    "body": "Trying to import 5000 tasks via CSV, the system returns '413 Payload Too Large'. Max size not documented. Could you increase limit or advise workaround?",
+    "expected_category": "Technical / IT problems",
+    "expected_priority": "LOW"
+  },
+  {
+    "email_id": 21,
+    "from": "karen@retailcore.com",
+    "subject": "Overcharged on annual subscription",
+    "body": "Our invoice #INV-421 shows €12,000 but our plan is €9,600 per year. Please correct and refund the overcharge.",
+    "expected_category": "Billing & payment queries",
+    "expected_priority": "MEDIUM"
+  },
+  {
+    "email_id": 22,
+    "from": "leo@edtech.de",
+    "subject": "Credit card charged twice for same month",
+    "body": "We were billed twice on May 1 and May 3 for the same subscription. Please reverse one charge immediately.",
+    "expected_category": "Billing & payment queries",
+    "expected_priority": "URGENT"
+  },
+  {
+    "email_id": 23,
+    "from": "mia@healthdata.com",
+    "subject": "Tax ID missing on invoices",
+    "body": "All our invoices lack our VAT number (DE123456789). Could you re-issue past invoices with correct tax ID for our records?",
+    "expected_category": "Billing & payment queries",
+    "expected_priority": "LOW"
+  },
+  {
+    "email_id": 24,
+    "from": "noah@finlegal.de",
+    "subject": "Payment not reflected on account",
+    "body": "We made a bank transfer of €4,800 on May 28. Your portal still shows 'payment overdue'. Please update our account.",
+    "expected_category": "Billing & payment queries",
+    "expected_priority": "MEDIUM"
+  },
+  {
+    "email_id": 25,
+    "from": "olivia@smartcity.io",
+    "subject": "Price increase without notice",
+    "body": "Our May invoice is 15% higher than April. We did not receive any email about pricing changes. Please explain.",
+    "expected_category": "Billing & payment queries",
+    "expected_priority": "MEDIUM"
+  },
+  {
+    "email_id": 26,
+    "from": "paul@greenenergy.de",
+    "subject": "Cancellation request – billing continues",
+    "body": "We canceled our subscription on May 15 (ticket #C789). Yet we received an invoice for June. Please stop billing and refund.",
+    "expected_category": "Billing & payment queries",
+    "expected_priority": "URGENT"
+  },
+  {
+    "email_id": 27,
+    "from": "quincy@datahub.com",
+    "subject": "Cannot update payment method",
+    "body": "Our credit card expired. When I try to add a new card, the page says 'update failed' with no reason. Please help before auto-billing fails.",
+    "expected_category": "Billing & payment queries",
+    "expected_priority": "MEDIUM"
+  },
+  {
+    "email_id": 28,
+    "from": "rose@logi.solutions",
+    "subject": "Invoice currency wrong",
+    "body": "We are based in Germany and pay in EUR, but invoice #INV-512 is in USD. Please issue a correct EUR invoice.",
+    "expected_category": "Billing & payment queries",
+    "expected_priority": "LOW"
+  },
+  {
+    "email_id": 29,
+    "from": "sam@archviz.de",
+    "subject": "Early termination fee not agreed",
+    "body": "We are ending contract early. You charged a €1,500 termination fee. Our contract does not mention this. Please remove fee.",
+    "expected_category": "Billing & payment queries",
+    "expected_priority": "MEDIUM"
+  },
+  {
+    "email_id": 30,
+    "from": "tina@biotech.com",
+    "subject": "Discount not applied correctly",
+    "body": "We have a 20% first-year discount code. But invoice shows full price. Please adjust and refund difference.",
+    "expected_category": "Billing & payment queries",
+    "expected_priority": "MEDIUM"
+  },
+  {
+    "email_id": 31,
+    "from": "ursula@edtech.de",
+    "subject": "Request refund for unused licenses",
+    "body": "We paid for 100 users annually but only use 40. Can we get a pro-rated refund for the 60 unused licenses?",
+    "expected_category": "Returns & refund requests",
+    "expected_priority": "LOW"
+  },
+  {
+    "email_id": 32,
+    "from": "victor@fintech-solutions.com",
+    "subject": "Refund for duplicate payment",
+    "body": "We accidentally paid the same invoice twice (INV-789). Please refund one payment of €2,300.",
+    "expected_category": "Returns & refund requests",
+    "expected_priority": "MEDIUM"
+  },
+  {
+    "email_id": 33,
+    "from": "wendy@buildco.com",
+    "subject": "Return of licenses – we switched to competitor",
+    "body": "We are leaving TechFlow. We have 9 months left on our annual plan. Request refund for remaining period as per contract section 5.2.",
+    "expected_category": "Returns & refund requests",
+    "expected_priority": "MEDIUM"
+  },
+  {
+    "email_id": 34,
+    "from": "xavier@quantum.de",
+    "subject": "Refund for unusable API feature",
+    "body": "We paid extra €500/year for API webhooks, but webhooks have never worked. Request refund of that add-on fee.",
+    "expected_category": "Returns & refund requests",
+    "expected_priority": "LOW"
+  },
+  {
+    "email_id": 35,
+    "from": "yara@mobility.ai",
+    "subject": "Wrong subscription tier – refund difference",
+    "body": "We were charged for Enterprise but we only signed up for Pro. Please refund the difference (€200/month for last 3 months).",
+    "expected_category": "Returns & refund requests",
+    "expected_priority": "MEDIUM"
+  },
+  {
+    "email_id": 36,
+    "from": "zack@legalzoom.io",
+    "subject": "Refund for non-functional add-on",
+    "body": "We bought 'Advanced Reporting' add-on for €300 but the reports are exactly the same as basic. Please refund.",
+    "expected_category": "Returns & refund requests",
+    "expected_priority": "MEDIUM"
+  },
+  {
+    "email_id": 37,
+    "from": "anna@hrcloud.de",
+    "subject": "Cancel and refund within 14 days",
+    "body": "We signed up 10 days ago and wish to cancel under EU right of withdrawal. Please refund full amount of €1,200.",
+    "expected_category": "Returns & refund requests",
+    "expected_priority": "URGENT"
+  },
+  {
+    "email_id": 38,
+    "from": "brian@datadriven.com",
+    "subject": "Partial refund for outage period",
+    "body": "Your service had 48 hours of downtime last month. We request a 2/30 refund of our monthly fee (€320).",
+    "expected_category": "Returns & refund requests",
+    "expected_priority": "LOW"
+  },
+  {
+    "email_id": 39,
+    "from": "carla@logistyx.de",
+    "subject": "Refund request – double charge for add-on",
+    "body": "We were charged twice for the 'Audit Log' add-on in March and April. Please refund one charge per month.",
+    "expected_category": "Returns & refund requests",
+    "expected_priority": "MEDIUM"
+  },
+  {
+    "email_id": 40,
+    "from": "daniel@creativecloud.com",
+    "subject": "License return – purchased by mistake",
+    "body": "I accidentally ordered 20 extra user licenses. Order made 1 hour ago. Can you cancel and refund?",
+    "expected_category": "Returns & refund requests",
+    "expected_priority": "URGENT"
+  },
+  {
+    "email_id": 41,
+    "from": "emily@scaleup.de",
+    "subject": "How to add team members?",
+    "body": "We just signed up. Where do I add my colleagues? I can't find the 'Users' section in the dashboard. Please send instructions.",
+    "expected_category": "General questions / FAQs",
+    "expected_priority": "LOW"
+  },
+  {
+    "email_id": 42,
+    "from": "fred@greenfield.energy",
+    "subject": "Do you offer on-premises deployment?",
+    "body": "We have strict data residency rules. Does TechFlow have an on-prem version? If yes, pricing?",
+    "expected_category": "General questions / FAQs",
+    "expected_priority": "LOW"
+  },
+  {
+    "email_id": 43,
+    "from": "gina@healthdata.com",
+    "subject": "Supported file types for attachments",
+    "body": "What file types can we attach to tasks? Can we attach .psd or .ai files? Documentation doesn't specify.",
+    "expected_category": "General questions / FAQs",
+    "expected_priority": "LOW"
+  },
+  {
+    "email_id": 44,
+    "from": "hank@mobility.ai",
+    "subject": "Is there a free trial for Enterprise?",
+    "body": "We want to test Enterprise features (audit logs, SSO) before committing. Do you offer a 14-day trial?",
+    "expected_category": "General questions / FAQs",
+    "expected_priority": "LOW"
+  },
+  {
+    "email_id": 45,
+    "from": "iris@finwave.de",
+    "subject": "GDPR compliance details",
+    "body": "Can you share your Data Processing Agreement and subprocessor list? Our legal team needs it for compliance.",
+    "expected_category": "General questions / FAQs",
+    "expected_priority": "MEDIUM"
+  },
+  {
+    "email_id": 46,
+    "from": "james@archviz.de",
+    "subject": "How to export all projects?",
+    "body": "We may need to migrate data. Is there a bulk export feature for all projects, tasks, and comments? Format?",
+    "expected_category": "General questions / FAQs",
+    "expected_priority": "LOW"
+  },
+  {
+    "email_id": 47,
+    "from": "kelly@codebase.de",
+    "subject": "API rate limits?",
+    "body": "What are the rate limits for the REST API? I can't find it in your API docs. We need for integration planning.",
+    "expected_category": "General questions / FAQs",
+    "expected_priority": "LOW"
+  },
+  {
+    "email_id": 48,
+    "from": "leo@smartcity.io",
+    "subject": "Custom domain for workspace?",
+    "body": "Can we use our own domain (project.ourcompany.com) instead of your subdomain? If yes, what's the setup process?",
+    "expected_category": "General questions / FAQs",
+    "expected_priority": "LOW"
+  },
+  {
+    "email_id": 49,
+    "from": "maria@retailcore.com",
+    "subject": "Do you have a Slack integration?",
+    "body": "We'd like to receive task notifications in Slack. Is there a native integration or webhook setup?",
+    "expected_category": "General questions / FAQs",
+    "expected_priority": "LOW"
+  },
+  {
+    "email_id": 50,
+    "from": "nick@buildcycle.com",
+    "subject": "What's your SLA for support tickets?",
+    "body": "What are the guaranteed response times for different priorities? We need this for our internal vendor assessment.",
+    "expected_category": "General questions / FAQs",
+    "expected_priority": "LOW"
+  },
+  {
+    "email_id": 51,
+    "from": "olga@datadriven.com",
+    "subject": "Worst support experience ever",
+    "body": "We've been waiting 5 days for a reply on ticket #12345. This is completely unacceptable for a paid service. We are considering switching vendors and will tell everyone in our network.",
+    "expected_category": "Complaints & escalations",
+    "expected_priority": "URGENT"
+  },
+  {
+    "email_id": 52,
+    "from": "paul@buildco.com",
+    "subject": "Billing error ignored for weeks",
+    "body": "I reported a double charge on May 10, and your team did nothing. Now you charge late fees? This is outrageous. Escalate to your manager now.",
+    "expected_category": "Complaints & escalations",
+    "expected_priority": "URGENT"
+  },
+  {
+    "email_id": 53,
+    "from": "rachel@edtech.de",
+    "subject": "Lack of transparency on data breach",
+    "body": "We heard from a third party that you had a security incident last month. Why were customers not notified? This is a serious compliance violation.",
+    "expected_category": "Complaints & escalations",
+    "expected_priority": "URGENT"
+  },
+  {
+    "email_id": 54,
+    "from": "steve@fintech-solutions.com",
+    "subject": "Sales team promised features that don't exist",
+    "body": "Your sales rep told us 'automatic time tracking' exists. After paying, we learned it's not a feature. This is false advertising. I want a refund and an apology.",
+    "expected_category": "Complaints & escalations",
+    "expected_priority": "URGENT"
+  },
+  {
+    "email_id": 55,
+    "from": "tara@hrcloud.de",
+    "subject": "Account deactivated without notice",
+    "body": "You deactivated our account for 'non-payment' despite us showing bank statements. We lost 3 days of work. This is completely unacceptable.",
+    "expected_category": "Complaints & escalations",
+    "expected_priority": "URGENT"
+  },
+  {
+    "email_id": 56,
+    "from": "ursa@healthdata.com",
+    "subject": "Support agent rude and unhelpful",
+    "body": "Agent John D. told me 'read the docs' and closed my ticket. I am escalating to your CEO. This is how you treat paying customers?",
+    "expected_category": "Complaints & escalations",
+    "expected_priority": "MEDIUM"
+  },
+  {
+    "email_id": 57,
+    "from": "vince@logistyx.de",
+    "subject": "Repeated downtime – violating SLA",
+    "body": "Your service had 4 outages this month, total 6 hours. Our SLA says 99.9% uptime. We demand service credits as per contract.",
+    "expected_category": "Complaints & escalations",
+    "expected_priority": "URGENT"
+  },
+  {
+    "email_id": 58,
+    "from": "willa@mobility.ai",
+    "subject": "Hidden fees discovered",
+    "body": "You charged us €500 for 'API overage' without any warning or documentation on limits. This feels like a scam. Remove the charge.",
+    "expected_category": "Complaints & escalations",
+    "expected_priority": "MEDIUM"
+  },
+  {
+    "email_id": 59,
+    "from": "xander@quantum.de",
+    "subject": "Lost our project data",
+    "body": "A project with 3 months of work disappeared from your platform. Support says 'cannot restore'. This is catastrophic. Legal will be in touch.",
+    "expected_category": "Complaints & escalations",
+    "expected_priority": "URGENT"
+  },
+  {
+    "email_id": 60,
+    "from": "yasmine@scaleup.de",
+    "subject": "Automatic renewal ignored cancellation",
+    "body": "We cancelled in writing 30 days before renewal. You renewed anyway and charged our card. This is illegal. Refund immediately or we dispute.",
+    "expected_category": "Complaints & escalations",
+    "expected_priority": "URGENT"
+  }
+]
