@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profile saved — Smart Office Support Agent</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Profile saved</h1>
+      <p class="subtitle">Your company profile was written to <code>{{ profile_path }}</code>.</p>
+    </header>
+
+    <section class="card">
+      <h2>Summary</h2>
+      <ul class="summary-list">
+        <li><strong>Company:</strong> {{ profile.company_name }}</li>
+        <li><strong>Industry:</strong> {{ profile.industry }}</li>
+        <li><strong>Tone:</strong> {{ profile.preferred_tone }}</li>
+        <li><strong>Support email:</strong> {{ profile.support_email }}</li>
+        <li><strong>Custom categories:</strong> {{ profile.custom_categories | length }}</li>
+        <li><strong>Team roles set:</strong> {{ profile.team_roles | length }}</li>
+      </ul>
+
+      <h2>Raw profile</h2>
+      <pre>{{ profile | tojson(indent=2) }}</pre>
+    </section>
+
+    <a class="submit-btn" href="{{ url_for('index') }}">Edit again</a>
+  </div>
+</body>
+</html>

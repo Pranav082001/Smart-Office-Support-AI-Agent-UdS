@@ -18,6 +18,7 @@ notion-client
 python-dotenv
 pydantic
 requests
+flask
 
 # Evaluation
 scikit-learn

@@ -12,19 +12,18 @@ A domain-agnostic LLM-based agent that automates customer support workflows usin
 
 ```
 smart-office-support-agent/
+├── app.py                  # onboarding web app (Flask)
+├── templates/              # onboarding form & success page
+├── static/                 # CSS/JS for the onboarding form
 ├── src/
 │   ├── part1_llm/          # LLM classification & prompting engine
-│   │   ├── classifier.py   # classify_email() — main Part 1 function
-│   │   └── onboarding.py   # company onboarding form (CLI)
+│   │   └── classifier.py   # classify_email() — main Part 1 function
 │   ├── part2_mcp/          # MCP servers & tool integration (coming next)
 │   └── part3_agent/        # ReAct agent loop & evaluation (coming next)
 ├── data/
 │   ├── company_profile.example.json
 │   └── test_emails/
 ├── results/
-├── scripts/
-│   ├── agent.sub           # HTCondor submit file (for cluster use)
-│   └── run_agent.sh        # shell script for cluster
 ├── requirements.txt
 └── .env.example
 ```
@@ -61,8 +60,9 @@ cp .env.example .env
 # Option A: copy and edit the example
 cp data/company_profile.example.json data/company_profile.json
 
-# Option B: run the interactive onboarding form
-python src/part1_llm/onboarding.py
+# Option B: run the onboarding web app
+python app.py
+# then open http://127.0.0.1:5000 and fill in the form
 ```
 
 ### 6. Test the classifier
@@ -92,6 +92,24 @@ Expected output:
 | `mixtral-8x7b-32768` | Fast | Long emails (32k context) |
 
 Change model in `.env`: `GROQ_MODEL=llama-3.3-70b-versatile`
+
+---
+
+## Local Learning Memory
+
+Before calling the Groq API, `classify_email()` checks `data/memory/` for a
+near-duplicate of a previously classified email (see `src/part1_llm/memory.py`).
+
+- A cheap keyword-based pre-filter narrows the search to the most likely
+  category before any text comparison happens.
+- Entries are split into `data/memory/<category>/<priority>.json` buckets, so
+  lookups stay fast even as the memory grows.
+- On a match, the category/priority/assigned_role/reasoning are reused and
+  only a short reply-writing prompt is sent to the LLM, cutting token usage.
+- New emails (and anything with no match) are classified normally and saved
+  to memory for next time.
+
+This folder is gitignored — it's local, per-deployment learned state.
 
 ---
 

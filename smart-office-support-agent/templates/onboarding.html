@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smart Office Support Agent — Onboarding</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Smart Office Support Agent</h1>
+      <p class="subtitle">Tell us about your company so the agent can classify and reply to support emails correctly.</p>
+    </header>
+
+    <form action="{{ url_for('submit') }}" method="post">
+
+      <section class="card">
+        <h2>Company Information</h2>
+
+        <label for="company_name">Company name *</label>
+        <input type="text" id="company_name" name="company_name" required>
+
+        <label for="industry">Industry *</label>
+        <select id="industry" name="industry" required>
+          {% for ind in industries %}
+          <option value="{{ ind }}">{{ ind }}</option>
+          {% endfor %}
+        </select>
+
+        <label for="description">Company description *</label>
+        <textarea id="description" name="description" rows="4"
+          placeholder="2-5 sentences about what your company does and who your customers are" required></textarea>
+
+        <label for="support_email">Support inbox email *</label>
+        <input type="email" id="support_email" name="support_email" placeholder="support@yourcompany.com" required>
+      </section>
+
+      <section class="card">
+        <h2>Reply Preferences</h2>
+
+        <label for="tone">Preferred reply tone</label>
+        <select id="tone" name="tone">
+          {% for tone in tones %}
+          <option value="{{ tone }}">{{ tone | capitalize }}</option>
+          {% endfor %}
+        </select>
+      </section>
+
+      <section class="card">
+        <h2>Custom Email Categories</h2>
+        <p class="hint">Add up to 4 extra categories beyond the defaults below (optional).</p>
+
+        {% for i in range(4) %}
+        <div class="custom-category-row">
+          <input type="text" name="custom_category_{{ i }}" class="custom-cat-input"
+            placeholder="Custom category {{ i + 1 }}">
+          <input type="email" name="custom_role_{{ i }}" class="custom-role-input"
+            placeholder="Responsible team email" readonly>
+        </div>
+        {% endfor %}
+      </section>
+
+      <section class="card">
+        <h2>Team Role Assignment</h2>
+        <p class="hint">Map each category to the team responsible for handling it (optional).</p>
+
+        {% for cat in default_categories %}
+        <div class="role-row">
+          <span class="category-label">{{ cat }}</span>
+          <input type="email" name="default_role" placeholder="team@yourcompany.com">
+        </div>
+        {% endfor %}
+      </section>
+
+      <button type="submit" class="submit-btn">Save company profile</button>
+    </form>
+  </div>
+
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

@@ -1,13 +1,8 @@
 """
 Part 1: LLM Classification & Reply Engine
-------------------------------------------
-Uses Groq API (free) with LLaMA 3 8B.
-Takes a raw email + company profile and returns:
-- category
-- priority
-- assigned_role
-- reply_draft
-- reasoning
+
+Uses Groq API (free) with LLaMA 3 8B. Takes a raw email + company profile
+and returns category, priority, assigned_role, reply_draft, and reasoning.
 """
 
 import json
@@ -16,9 +11,9 @@ from dotenv import load_dotenv
 from langchain_groq import ChatGroq
 from langchain_core.messages import SystemMessage, HumanMessage
 
-load_dotenv()
+from .memory import find_cached_match, save_to_memory
 
-# ── Categories & Priorities ──────────────────────────────────────
+load_dotenv()
 
 DEFAULT_CATEGORIES = [
     "Order & Delivery Issues",
@@ -32,15 +27,11 @@ DEFAULT_CATEGORIES = [
 PRIORITIES = ["URGENT", "MEDIUM", "LOW"]
 
 
-# ── Load company profile ─────────────────────────────────────────
-
 def load_company_profile(path: str = None) -> dict:
     path = path or os.getenv("COMPANY_PROFILE_PATH", "data/company_profile.json")
     with open(path, "r") as f:
         return json.load(f)
 
-
-# ── Get LLM instance ─────────────────────────────────────────────
 
 def get_llm():
     return ChatGroq(
@@ -50,7 +41,14 @@ def get_llm():
     )
 
 
-# ── Build system prompt ──────────────────────────────────────────
+def _strip_code_fence(raw: str) -> str:
+    raw = raw.strip()
+    if raw.startswith("```"):
+        raw = raw.split("```")[1]
+        if raw.startswith("json"):
+            raw = raw[4:]
+    return raw.strip()
+
 
 def build_system_prompt(profile: dict) -> str:
     categories = DEFAULT_CATEGORIES + profile.get("custom_categories", [])
@@ -96,7 +94,37 @@ IMPORTANT: You must respond ONLY with valid JSON in this exact format:
 Do not include any text outside the JSON."""
 
 
-# ── Main classify function ───────────────────────────────────────
+def build_reply_prompt(profile: dict, category: str, priority: str) -> str:
+    tone = profile.get("preferred_tone", "formal")
+
+    return f"""You are a {tone} customer support assistant for {profile['company_name']}.
+
+Company description:
+{profile['description']}
+
+This email was already classified as "{category}" with priority {priority}.
+
+Write a {tone} reply draft that:
+- Addresses the customer by name if possible
+- Acknowledges their issue clearly
+- Reflects the company's products/services
+- Ends with the company name: {profile['company_name']}
+
+Respond with ONLY the reply text. No JSON, no extra commentary."""
+
+
+def generate_reply(email_text: str, company_profile: dict, category: str, priority: str) -> str:
+    llm = get_llm()
+    system_prompt = build_reply_prompt(company_profile, category, priority)
+
+    messages = [
+        SystemMessage(content=system_prompt),
+        HumanMessage(content=f"Customer email:\n\n{email_text}"),
+    ]
+
+    response = llm.invoke(messages)
+    return response.content.strip()
+
 
 def classify_email(email_text: str, company_profile: dict) -> dict:
     """
@@ -104,7 +132,25 @@ def classify_email(email_text: str, company_profile: dict) -> dict:
     Takes raw email text and company profile dict.
     Returns structured dict with category, priority, assigned_role,
     reply_draft, and reasoning.
+
+    If a near-duplicate of this email has been seen before, the category,
+    priority, assigned_role and reasoning are reused from local memory and
+    only a short prompt is sent to the LLM to write the reply. This keeps
+    token usage down as the agent learns from more emails over time.
     """
+    all_categories = DEFAULT_CATEGORIES + company_profile.get("custom_categories", [])
+    cached = find_cached_match(email_text, all_categories)
+
+    if cached:
+        reply_draft = generate_reply(email_text, company_profile, cached["category"], cached["priority"])
+        return {
+            "category": cached["category"],
+            "priority": cached["priority"],
+            "assigned_role": cached["assigned_role"],
+            "reply_draft": reply_draft,
+            "reasoning": cached["reasoning"] + " (matched a previously seen email)",
+        }
+
     llm = get_llm()
     system_prompt = build_system_prompt(company_profile)
 
@@ -114,19 +160,11 @@ def classify_email(email_text: str, company_profile: dict) -> dict:
     ]
 
     response = llm.invoke(messages)
-    raw = response.content.strip()
+    result = json.loads(_strip_code_fence(response.content))
 
-    # Strip markdown code fences if model wraps in ```json
-    if raw.startswith("```"):
-        raw = raw.split("```")[1]
-        if raw.startswith("json"):
-            raw = raw[4:]
-    raw = raw.strip()
+    save_to_memory(email_text, result)
+    return result
 
-    return json.loads(raw)
-
-
-# ── Few-shot version ─────────────────────────────────────────────
 
 def classify_email_few_shot(email_text: str, company_profile: dict, examples: list) -> dict:
     """
@@ -149,18 +187,8 @@ def classify_email_few_shot(email_text: str, company_profile: dict, examples: li
     ]
 
     response = llm.invoke(messages)
-    raw = response.content.strip()
+    return json.loads(_strip_code_fence(response.content))
 
-    if raw.startswith("```"):
-        raw = raw.split("```")[1]
-        if raw.startswith("json"):
-            raw = raw[4:]
-    raw = raw.strip()
-
-    return json.loads(raw)
-
-
-# ── Quick test ───────────────────────────────────────────────────
 
 if __name__ == "__main__":
     profile = load_company_profile("data/company_profile.example.json")
