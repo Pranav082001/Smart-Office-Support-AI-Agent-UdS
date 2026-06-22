@@ -1,7 +1,11 @@
 import os
 import base64
-from email.message import EmailMessage
 import email
+import pickle
+import quopri
+import re
+from email.message import EmailMessage
+from email.header import decode_header
 from fastmcp import FastMCP
 
 from google.auth.transport.requests import Request
@@ -9,15 +13,23 @@ from google.oauth2.credentials import Credentials
 from google_auth_oauthlib.flow import InstalledAppFlow
 from googleapiclient.discovery import build
 
+
+from pathlib import Path
+SCRIPT_DIR = Path(__file__).parent.absolute()
+PROJECT_ROOT = SCRIPT_DIR.parent.parent
+
 # Initialize the FastMCP server for the Email tool
 mcp = FastMCP("EmailServer_OAuth")
 
 # Define the scope of access (Full access to read, send, and modify emails)
-SCOPES = ['https://mail.google.com/']
+SCOPES = [
+    'https://www.googleapis.com/auth/gmail.modify',  # read and modify emails (mark as read, delete, etc.)
+    'https://www.googleapis.com/auth/gmail.send'     # send emails
+]
 
 # Read the paths from environment variables, fallback to the default paths your teammate defined
-CREDENTIALS_PATH = os.environ.get("GMAIL_CREDENTIALS_PATH")
-TOKEN_PATH = os.environ.get("GMAIL_TOKEN_PATH")
+CREDENTIALS_PATH = str(PROJECT_ROOT / "credentials/credentials.json")
+TOKEN_PATH = str(PROJECT_ROOT / "credentials/token.json")
 
 def get_gmail_service():
     """
@@ -28,7 +40,8 @@ def get_gmail_service():
     
     # 1. Check if we already have a saved token (gmail_token.json)
     if os.path.exists(TOKEN_PATH):
-        creds = Credentials.from_authorized_user_file(TOKEN_PATH, SCOPES)
+        with open(TOKEN_PATH, 'rb') as f:
+            creds = pickle.load(f) 
     
     # 2. If there are no valid credentials available, let the user log in.
     if not creds or not creds.valid:
@@ -43,22 +56,91 @@ def get_gmail_service():
         
         # Save the new or refreshed token for the next run
         # This creates the gmail_token.json file
-        with open(TOKEN_PATH, 'w') as token:
-            token.write(creds.to_json())
+        with open(TOKEN_PATH, 'wb') as token:
+            pickle.dump(creds, token)
             
     # Build and return the Gmail API client
     return build('gmail', 'v1', credentials=creds)
+
+
+
+def decode_subject(header):
+    """
+    Decode email subject or from header that may be encoded (e.g., =?UTF-8?B?...).
+    """
+    if header is None:
+        return "(No Subject)"
+    decoded_parts = []
+    for chunk, encoding in decode_header(header):
+        if isinstance(chunk, bytes):
+            try:
+                decoded_parts.append(chunk.decode(encoding or 'utf-8', errors='ignore'))
+            except:
+                decoded_parts.append(chunk.decode('utf-8', errors='ignore'))
+        elif isinstance(chunk, str):
+            decoded_parts.append(chunk)
+    return ''.join(decoded_parts)
+
+def decode_email_body_simple(mime_msg):
+    """
+    Extract email body without recursion.
+    Prefers plain text; falls back to HTML stripped of tags.
+    """
+    body = None
+    
+    if mime_msg.is_multipart():
+        for part in mime_msg.walk():
+            # Skip attachments
+            if part.get('Content-Disposition') and 'attachment' in part.get('Content-Disposition'):
+                continue
+            
+            content_type = part.get_content_type()
+            if content_type == 'text/plain':
+                payload = part.get_payload(decode=True)
+                if payload:
+                    try:
+                        body = payload.decode('utf-8', errors='ignore')
+                        return body  # Plain text found, return immediately
+                    except:
+                        pass
+            elif content_type == 'text/html' and body is None:
+                payload = part.get_payload(decode=True)
+                if payload:
+                    try:
+                        html = payload.decode('utf-8', errors='ignore')
+                        # Simple HTML tag removal
+                        body = re.sub(r'<[^>]+>', ' ', html)
+                        body = re.sub(r'\s+', ' ', body).strip()
+                    except:
+                        pass
+    else:
+        # Not multipart: directly extract
+        content_type = mime_msg.get_content_type()
+        payload = mime_msg.get_payload(decode=True)
+        if payload:
+            try:
+                if content_type == 'text/plain':
+                    body = payload.decode('utf-8', errors='ignore')
+                elif content_type == 'text/html':
+                    html = payload.decode('utf-8', errors='ignore')
+                    body = re.sub(r'<[^>]+>', ' ', html)
+                    body = re.sub(r'\s+', ' ', body).strip()
+            except:
+                pass
+    
+    return body or "(No readable content)"
+
 
 @mcp.tool()
 def fetch_unread_emails(limit: int = 5) -> str:
     """
     Fetch the most recent unread emails from the inbox.
-    The LLM uses this tool to check for new customer requests.
+    After fetching, automatically marks them as read to avoid re-processing.
     """
     try:
         service = get_gmail_service()
         
-        # Search for unread emails in the primary inbox
+        # Search for unread emails
         results = service.users().messages().list(userId='me', q='is:unread', maxResults=limit).execute()
         messages = results.get('messages', [])
 
@@ -66,38 +148,44 @@ def fetch_unread_emails(limit: int = 5) -> str:
             return "No new unread emails found."
 
         fetched_emails = []
+        message_ids = []  # Keep track of IDs to mark as read later
+
         for msg in messages:
-            # Fetch the raw, full content of the email
-            txt = service.users().messages().get(userId='me', id=msg['id'], format='raw').execute()
+            message_ids.append(msg['id'])  # Collect ID for batch marking
             
-            # Decode the base64url encoded string
+            # Fetch the raw email content
+            txt = service.users().messages().get(userId='me', id=msg['id'], format='raw').execute()
             msg_raw = base64.urlsafe_b64decode(txt['raw'].encode('ASCII'))
             mime_msg = email.message_from_bytes(msg_raw)
             
-            # Extract headers
-            subject = mime_msg['Subject']
-            sender = mime_msg['From']
-            body = ""
+            # Decode subject
+            raw_subject = mime_msg['Subject']
+            subject = decode_subject(raw_subject)
+            
+            # Decode sender
+            raw_from = mime_msg['From']
+            sender = decode_subject(raw_from)
+            
+            # Extract body
+            body = decode_email_body_simple(mime_msg)
 
-            # Extract the plain text body from the multipart email structure
-            if mime_msg.is_multipart():
-                for part in mime_msg.walk():
-                    if part.get_content_type() == "text/plain":
-                        body = part.get_payload(decode=True).decode('utf-8', errors='ignore')
-                        break
-            else:
-                body = mime_msg.get_payload(decode=True).decode('utf-8', errors='ignore')
-
-            # Format the output string for the LLM
-            email_str = f"ID: {msg['id']}\nFrom: {sender}\nSubject: {subject}\nBody: {body.strip()}\n"
+            email_str = f"ID: {msg['id']}\nFrom: {sender}\nSubject: {subject}\nBody: {body[:500]}\n"
             fetched_emails.append(email_str)
 
-        # Return all fetched emails separated by a divider
+        # mark all fetched emails as read (remove UNREAD label)
+        for msg_id in message_ids:
+            service.users().messages().modify(
+                userId='me',
+                id=msg_id,
+                body={'removeLabelIds': ['UNREAD']}
+            ).execute()
+
         return "\n---\n".join(fetched_emails)
 
     except Exception as e:
         return f"Failed to fetch emails via Gmail API: {str(e)}"
-
+    
+    
 @mcp.tool()
 def send_email(to_address: str, subject: str, body: str) -> str:
     """
