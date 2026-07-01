@@ -50,6 +50,9 @@ def _strip_code_fence(raw: str) -> str:
     return raw.strip()
 
 
+PRIORITY_RANK = {"URGENT": 0, "MEDIUM": 1, "LOW": 2}
+
+
 def build_system_prompt(profile: dict) -> str:
     categories = DEFAULT_CATEGORIES + profile.get("custom_categories", [])
     categories_str = "\n".join(f"  - {c}" for c in categories)
@@ -64,32 +67,41 @@ def build_system_prompt(profile: dict) -> str:
 Company description:
 {profile['description']}
 
-Your job is to:
-1. Read the incoming support email carefully.
-2. Classify it into exactly ONE of these categories:
+Carefully read the incoming support email. A customer may raise one issue or several distinct issues in the same message.
+
+For EACH distinct issue you identify:
+1. Classify it into exactly ONE of these categories:
 {categories_str}
 
-3. Assign a priority level:
+2. Assign a priority level:
    - URGENT: needs response within 2 hours
    - MEDIUM: needs response within 24 hours
    - LOW: needs response within 72 hours
 
-4. Assign it to the correct team role based on category:
+3. Assign it to the correct team role based on category:
 {roles_str}
 
-5. Write a {tone} reply draft that:
-   - Addresses the customer by name if possible
-   - Acknowledges their issue clearly
-   - Reflects the company's products/services
-   - Ends with the company name: {profile['company_name']}
+4. Write a {tone} reply draft for ONLY that one specific issue:
+   - Address the customer by name if possible
+   - Acknowledge and respond to THIS issue only — do NOT mention or reference any other problems from the email
+   - Reflect the company's products/services
+   - End with the company name: {profile['company_name']}
 
-IMPORTANT: You must respond ONLY with valid JSON in this exact format:
+IMPORTANT: You must respond ONLY with valid JSON in this exact format.
+Return one ticket per distinct issue, ordered from highest to lowest priority.
+If the email contains only one issue, return a tickets array with exactly one item.
+Each reply_draft must cover its own issue only — never combine issues into one reply.
+
 {{
-  "category": "<one of the categories above>",
-  "priority": "<URGENT|MEDIUM|LOW>",
-  "assigned_role": "<email of responsible team>",
-  "reply_draft": "<full reply text>",
-  "reasoning": "<1-2 sentences explaining your classification>"
+  "tickets": [
+    {{
+      "category": "<one of the categories above>",
+      "priority": "<URGENT|MEDIUM|LOW>",
+      "assigned_role": "<email of responsible team>",
+      "reply_draft": "<reply addressing only this issue>",
+      "reasoning": "<1-2 sentences explaining this classification>"
+    }}
+  ]
 }}
 Do not include any text outside the JSON."""
 
@@ -102,11 +114,11 @@ def build_reply_prompt(profile: dict, category: str, priority: str) -> str:
 Company description:
 {profile['description']}
 
-This email was already classified as "{category}" with priority {priority}.
+The customer's email may mention multiple problems. You are responsible ONLY for the "{category}" issue (priority: {priority}).
 
-Write a {tone} reply draft that:
+Write a {tone} reply that:
 - Addresses the customer by name if possible
-- Acknowledges their issue clearly
+- Responds to the "{category}" issue only — do NOT acknowledge or mention any other problems from the email
 - Reflects the company's products/services
 - Ends with the company name: {profile['company_name']}
 
@@ -130,26 +142,29 @@ def classify_email(email_text: str, company_profile: dict) -> dict:
     """
     Main interface for Part 1.
     Takes raw email text and company profile dict.
-    Returns structured dict with category, priority, assigned_role,
-    reply_draft, and reasoning.
 
-    If a near-duplicate of this email has been seen before, the category,
-    priority, assigned_role and reasoning are reused from local memory and
-    only a short prompt is sent to the LLM to write the reply. This keeps
-    token usage down as the agent learns from more emails over time.
+    Returns {"tickets": [...]} where each ticket covers one distinct issue
+    found in the email, with its own category, priority, assigned_role,
+    reply_draft, and reasoning. Tickets are ordered most urgent first.
+
+    If a near-duplicate has been seen before, cached tickets are reused for
+    classification and only short reply prompts are sent to the LLM.
     """
     all_categories = DEFAULT_CATEGORIES + company_profile.get("custom_categories", [])
     cached = find_cached_match(email_text, all_categories)
 
     if cached:
-        reply_draft = generate_reply(email_text, company_profile, cached["category"], cached["priority"])
-        return {
-            "category": cached["category"],
-            "priority": cached["priority"],
-            "assigned_role": cached["assigned_role"],
-            "reply_draft": reply_draft,
-            "reasoning": cached["reasoning"] + " (matched a previously seen email)",
-        }
+        fresh_tickets = []
+        for ticket in cached["tickets"]:
+            reply = generate_reply(email_text, company_profile, ticket["category"], ticket["priority"])
+            fresh_tickets.append({
+                "category": ticket["category"],
+                "priority": ticket["priority"],
+                "assigned_role": ticket["assigned_role"],
+                "reply_draft": reply,
+                "reasoning": ticket["reasoning"] + " (matched a previously seen email)",
+            })
+        return {"tickets": fresh_tickets}
 
     llm = get_llm()
     system_prompt = build_system_prompt(company_profile)
@@ -162,6 +177,7 @@ def classify_email(email_text: str, company_profile: dict) -> dict:
     response = llm.invoke(messages)
     result = json.loads(_strip_code_fence(response.content))
 
+    result["tickets"].sort(key=lambda t: PRIORITY_RANK.get(t["priority"], 3))
     save_to_memory(email_text, result)
     return result
 
@@ -187,19 +203,22 @@ def classify_email_few_shot(email_text: str, company_profile: dict, examples: li
     ]
 
     response = llm.invoke(messages)
-    return json.loads(_strip_code_fence(response.content))
+    result = json.loads(_strip_code_fence(response.content))
+    result["tickets"].sort(key=lambda t: PRIORITY_RANK.get(t["priority"], 3))
+    return result
 
 
 if __name__ == "__main__":
     profile = load_company_profile("data/company_profile.example.json")
 
     test_email = """
-    From: customer@example.com
-    Subject: My order #4521 has not arrived
+    From: anna@example.com
+    Subject: Multiple issues with our account
 
     Hello,
-    I placed an order 5 days ago and it still hasn't arrived.
-    My event is tomorrow and I urgently need this item.
+    I placed an order 5 days ago (#4521) and it still hasn't arrived — my event is tomorrow.
+    Also, we were charged twice on our invoice this month.
+    And our team cannot log in to the platform since this morning.
     Please help as soon as possible!
 
     Best,
@@ -208,4 +227,8 @@ if __name__ == "__main__":
 
     print("Testing classify_email with Groq...")
     result = classify_email(test_email, profile)
-    print(json.dumps(result, indent=2))
+    print(f"\n{len(result['tickets'])} ticket(s) generated:\n")
+    for i, ticket in enumerate(result["tickets"], 1):
+        print(f"--- Ticket {i} ---")
+        print(json.dumps(ticket, indent=2))
+        print()

@@ -106,6 +106,14 @@ def find_cached_match(email_text: str, all_categories: list) -> dict:
             for entry in _load_bucket(category, priority):
                 ratio = difflib.SequenceMatcher(None, normalized, entry["text"]).ratio()
                 if ratio >= SIMILARITY_THRESHOLD:
+                    # Migrate old single-ticket format to the current tickets format.
+                    if "tickets" not in entry:
+                        entry["tickets"] = [{
+                            "category": entry["category"],
+                            "priority": entry["priority"],
+                            "assigned_role": entry["assigned_role"],
+                            "reasoning": entry["reasoning"],
+                        }]
                     return entry
 
     return None
@@ -113,15 +121,18 @@ def find_cached_match(email_text: str, all_categories: list) -> dict:
 
 def save_to_memory(email_text: str, result: dict) -> None:
     """Store a classified email so future near-duplicates can skip classification."""
-    category = result["category"]
-    priority = result["priority"]
+    tickets = result.get("tickets", [])
+    if not tickets:
+        return
+
+    # Bucket by the primary (most urgent) ticket.
+    primary = tickets[0]
+    category = primary["category"]
+    priority = primary["priority"]
 
     entry = {
         "text": normalize_text(email_text),
-        "category": category,
-        "priority": priority,
-        "assigned_role": result["assigned_role"],
-        "reasoning": result["reasoning"],
+        "tickets": tickets,
     }
 
     entries = _load_bucket(category, priority)
