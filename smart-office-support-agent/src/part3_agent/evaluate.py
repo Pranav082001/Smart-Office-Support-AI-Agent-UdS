@@ -31,12 +31,15 @@ def run_evaluation(profile_path: str = "data/company_profile.example.json") -> p
         email_text = f"From: {item['from']}\nSubject: {item['subject']}\n\n{item['body']}"
         prediction = classify_email(email_text, profile)
 
+        # Use the primary (most urgent) ticket for single-issue evaluation metrics.
+        primary = prediction["tickets"][0]
         rows.append({
             "email_id": item["email_id"],
             "expected_category": item["expected_category"],
-            "predicted_category": prediction["category"],
+            "predicted_category": primary["category"],
             "expected_priority": item["expected_priority"],
-            "predicted_priority": prediction["priority"],
+            "predicted_priority": primary["priority"],
+            "num_tickets": len(prediction["tickets"]),
         })
 
     df = pd.DataFrame(rows)
