@@ -1,0 +1,446 @@
+input_email,gold_category,predicted_category,category_correct,gold_priority,predicted_priority,priority_correct,agent_reply
+"ID: 1
+From: clark.ent@buildco.com
+Subject: Order #TF-2341 not delivered
+Body: We purchased 50 user licenses for your project management tool 3 days ago but still haven't received the activation code. Our team needs it for a project kickoff tomorrow morning. Please send urgently.",Order & Delivery Issues,Order & Delivery Issues,True,URGENT,URGENT,True,"Dear Clark,
+
+Thank you for reaching out. We understand the urgency of your situation and apologize for the delay in receiving your activation code.
+
+Please note that standard delivery for your order #TF-2341 is 5-7 business days. Since your order has been more than 3 days late, we are offering a $10 credit or free reshipment. We will process this as soon as possible.
+
+In the meantime, if you have not received your tracking information, please check your spam folder or resend the request from your order page. Most cases are resolved by the tracking number being in the wrong folder.
+
+Thank you for your patience and understanding. If you have any further concerns, please do not hesitate to contact us.
+
+Best regards,
+[Your Company Name]"
+"ID: 2
+From: sarah@logistyx.de
+Subject: Missing license keys after payment
+Body: Payment for order #TF-2890 went through on Monday. Still no license keys in our portal. Can you check what happened? We have 50 users waiting.",Order & Delivery Issues,Billing & Payment,False,URGENT,MEDIUM,False,
+"ID: 3
+From: mike.ross@legalzoom.io
+Subject: Order placed but no confirmation
+Body: I ordered an Enterprise plan upgrade yesterday (Order #TF-3012). No confirmation email, and the portal still shows Basic plan. Please fix asap – we need enterprise features for a demo.",Order & Delivery Issues,Order & Delivery Issues,True,URGENT,URGENT,True,"Dear Mike,
+
+Thank you for reaching out. We apologize for the inconvenience and any confusion regarding your order.
+
+We have noticed that your Enterprise plan upgrade (Order #TF-3012) has not been confirmed yet. We are looking into this issue and will ensure that you receive the necessary confirmation email shortly.
+
+In the meantime, please check your order status on our portal. If you do not see the updated plan, please let us know so we can assist further.
+
+If you have any further questions or need assistance, please do not hesitate to contact us.
+
+Best regards,
+[Your Company Name]"
+"ID: 4
+From: olivia@creativecloud.com
+Subject: License activation delayed – order #TF-2765
+Body: We purchased 10 additional user slots 24 hours ago. Still cannot assign them. This is blocking our new hires. Please resolve within 2 hours.",Order & Delivery Issues,Technical / IT Problems,False,URGENT,URGENT,True,
+"ID: 5
+From: peter@buildsmart.de
+Subject: Wrong product delivered on order
+Body: Order #TF-1982: we ordered the 'Pro Suite' but got 'Basic Suite' licenses. Please correct this. Our sprints depend on advanced reporting.",Order & Delivery Issues,Order & Delivery Issues,True,MEDIUM,URGENT,False,
+"ID: 6
+From: linda@fintech-solutions.com
+Subject: Invoice not received after order
+Body: Order #TF-3100 completed on May 20. No invoice in our account. Accounts payable needs it by end of week. Can you resend?",Order & Delivery Issues,Billing & Payment,False,LOW,MEDIUM,False,
+"ID: 7
+From: robert@innovate.io
+Subject: Order status shows 'pending' for 2 days
+Body: Our order #TF-2987 still says pending. Card was charged immediately. Please advise if any problem with the order. We need the tools by Friday.",Order & Delivery Issues,Order & Delivery Issues,True,MEDIUM,MEDIUM,True,"Thank you for your patience, Robert. Your order #TF-2987 is still pending due to processing delays. We understand the urgency and are working to expedite it. Typically, standard delivery is 5-7 business days. However, if your order is more than 3 days late, we will offer a $10 credit or free reshipment. We will keep you updated and log a ticket if necessary. Thank you for your understanding."
+"ID: 8
+From: julia@medrecord.de
+Subject: Quantity mismatch on delivery
+Body: We ordered 100 user licenses but only 75 were added to our account. Order #TF-2456. Please add the missing 25.",Order & Delivery Issues,Order & Delivery Issues,True,MEDIUM,MEDIUM,True,
+"ID: 9
+From: tom@nextgen.tech
+Subject: Order confirmation but no access
+Body: Got confirmation for #TF-3221. But when logging in, the system says 'no active subscription'. We have a team standup in 3 hours that needs the board view. Please help.",Order & Delivery Issues,Technical / IT Problems,False,URGENT,URGENT,True,
+"ID: 10
+From: nina@scaleup.de
+Subject: Can't find order history
+Body: I need to re-download a previous invoice from order #TF-1892. But the order history page is empty. Can you email me the invoice?",Order & Delivery Issues,Order & Delivery Issues,True,LOW,MEDIUM,False,"Hello Nina,
+
+Thank you for reaching out. I understand that you're trying to re-download an invoice for order #TF-1892, but the order history page is empty. Let's try a few steps to resolve this:
+
+1. Check your spam folder for any emails from us, as sometimes the tracking information or invoice might have been sent there.
+2. If you still can't find the invoice, we can resend it for you. Please provide the order number again for reference.
+
+If you've already checked these steps and are still having issues, please let us know and we'll escalate this to our support team for further investigation.
+
+Best regards,
+[Your Name]"
+"ID: 11
+From: alex@datadriven.com
+Subject: API returns 500 error constantly
+Body: Your REST API has been throwing 500 Internal Server Error for the past hour on the /tasks endpoint. We are in production. Please investigate urgently.",Technical / IT Problems,Technical / IT Problems,True,URGENT,URGENT,True,
+"ID: 12
+From: ben@codebase.de
+Subject: Web app extremely slow after update
+Body: Since your release on June 1, loading a project takes 20+ seconds. Our team of 30 can't work efficiently. This is a critical bug for us.",Technical / IT Problems,Technical / IT Problems,True,URGENT,URGENT,True,
+"ID: 13
+From: clara@analytix.com
+Subject: SSO login broken for all users
+Body: Our entire organization cannot log in via SAML. Getting 'authentication failed' after IdP redirect. This started 2 hours ago. Please fix asap.",Technical / IT Problems,Technical / IT Problems,True,URGENT,URGENT,True,
+"ID: 14
+From: david@finwave.de
+Subject: Mobile app crashes on Android
+Body: When opening any project board, the Android app crashes immediately. iOS works fine. Happening on multiple devices. Please patch.",Technical / IT Problems,Technical / IT Problems,True,MEDIUM,MEDIUM,True,
+"ID: 15
+From: emma@greenfield.energy
+Subject: Reports not exporting to PDF
+Body: The 'Export to PDF' button does nothing. No error, no download. Tried different browsers. Need this for client reporting by Friday.",Technical / IT Problems,Technical / IT Problems,True,MEDIUM,URGENT,False,
+"ID: 16
+From: frank@logi.solutions
+Subject: Webhook delivery failing
+Body: Our webhook endpoint has not received any events since last week. Configuration looks correct. Can you check your side?",Technical / IT Problems,Technical / IT Problems,True,MEDIUM,MEDIUM,True,
+"ID: 17
+From: grace@hrcloud.de
+Subject: Task assignment notifications not sent
+Body: When I assign a task to someone, no email notification is triggered. Team members are missing updates. Please restore.",Technical / IT Problems,Technical / IT Problems,True,MEDIUM,MEDIUM,True,
+"ID: 18
+From: henry@buildcycle.com
+Subject: Search function returns incomplete results
+Body: Searching for old tasks by keyword returns only 10% of what we know exists. Index seems broken. Can you rebuild?",Technical / IT Problems,Technical / IT Problems,True,LOW,MEDIUM,False,
+"ID: 19
+From: irene@mobility.ai
+Subject: Two-factor authentication loop
+Body: After entering TOTP, the page reloads and asks for TOTP again. Infinite loop. Cannot access our projects. Please help.",Technical / IT Problems,Technical / IT Problems,True,URGENT,URGENT,True,
+"ID: 20
+From: jack@quantum.de
+Subject: Error when uploading large CSV
+Body: Trying to import 5000 tasks via CSV, the system returns '413 Payload Too Large'. Max size not documented. Could you increase limit or advise workaround?",Technical / IT Problems,Technical / IT Problems,True,LOW,MEDIUM,False,"Thank you for your email.
+
+We understand that you're encountering an issue when trying to upload a large CSV file. The '413 Payload Too Large' error indicates that the file size exceeds the current limit set by our system.
+
+At this time, we don't have a specific maximum file size documented, but we are aware of this limitation and are working on improving it. As a workaround, you might consider splitting your CSV file into smaller chunks that each fall below the current limit.
+
+If you continue to experience issues or need further assistance, please let us know.
+
+Best regards,
+[Your Company Name]"
+"ID: 21
+From: karen@retailcore.com
+Subject: Overcharged on annual subscription
+Body: Our invoice #INV-421 shows €12,000 but our plan is €9,600 per year. Please correct and refund the overcharge.",Billing & Payment,Billing & Payment,True,MEDIUM,MEDIUM,True,"Thank you for bringing this to our attention, Karen.
+
+We have reviewed your invoice and identified a duplicate charge. Refunds for confirmed duplicates are automatic within 5-7 business days once a ticket is logged. Please allow up to 7 days for the refund to process.
+
+If you have any further questions or need assistance, please don't hesitate to reach out.
+
+Best regards,
+[Your Name]"
+"ID: 22
+From: leo@edtech.de
+Subject: Credit card charged twice for same month
+Body: We were billed twice on May 1 and May 3 for the same subscription. Please reverse one charge immediately.",Billing & Payment,Billing & Payment,True,URGENT,MEDIUM,False,"Dear Leo,
+
+Thank you for bringing this to our attention. We understand the inconvenience and will process a refund for one of the duplicate charges immediately. Please allow 5-7 business days for the refund to reflect on your account.
+
+If you have any further questions or need assistance, feel free to reach out.
+
+Best regards,
+[Your Company Name]"
+"ID: 23
+From: mia@healthdata.com
+Subject: Tax ID missing on invoices
+Body: All our invoices lack our VAT number (DE123456789). Could you re-issue past invoices with correct tax ID for our records?",Billing & Payment,Billing & Payment,True,LOW,MEDIUM,False,
+"ID: 24
+From: noah@finlegal.de
+Subject: Payment not reflected on account
+Body: We made a bank transfer of €4,800 on May 28. Your portal still shows 'payment overdue'. Please update our account.",Billing & Payment,Billing & Payment,True,MEDIUM,MEDIUM,True,
+"ID: 25
+From: olivia@smartcity.io
+Subject: Price increase without notice
+Body: Our May invoice is 15% higher than April. We did not receive any email about pricing changes. Please explain.",Billing & Payment,Billing & Payment,True,MEDIUM,MEDIUM,True,
+"ID: 26
+From: paul@greenenergy.de
+Subject: Cancellation request – billing continues
+Body: We canceled our subscription on May 15 (ticket #C789). Yet we received an invoice for June. Please stop billing and refund.",Billing & Payment,Billing & Payment,True,URGENT,MEDIUM,False,"Thank you for your email regarding your subscription cancellation and billing issue.
+
+We understand that you canceled your subscription on May 15, but you received an invoice for June. This is a common issue due to a double-submitted payment form. We will process a refund for the June invoice within 5-7 business days.
+
+If you have any further questions or concerns, please let us know.
+
+Best regards,
+[Your Company Name]"
+"ID: 27
+From: quincy@datahub.com
+Subject: Cannot update payment method
+Body: Our credit card expired. When I try to add a new card, the page says 'update failed' with no reason. Please help before auto-billing fails.",Billing & Payment,Billing & Payment,True,MEDIUM,URGENT,False,
+"ID: 28
+From: rose@logi.solutions
+Subject: Invoice currency wrong
+Body: We are based in Germany and pay in EUR, but invoice #INV-512 is in USD. Please issue a correct EUR invoice.",Billing & Payment,Billing & Payment,True,LOW,MEDIUM,False,"Dear Rose,
+
+Thank you for bringing this to our attention. We apologize for the inconvenience.
+
+The invoice #INV-512 is indeed in USD instead of EUR. We will correct this and issue a new invoice in EUR as soon as possible.
+
+If you have any further questions or concerns, please do not hesitate to reach out.
+
+Best regards,
+[Your Company Name]"
+"ID: 29
+From: sam@archviz.de
+Subject: Early termination fee not agreed
+Body: We are ending contract early. You charged a €1,500 termination fee. Our contract does not mention this. Please remove fee.",Billing & Payment,Complaints & Escalations,False,MEDIUM,MEDIUM,True,"Dear Sam,
+
+Thank you for bringing this to our attention. We understand your frustration regarding the early termination fee charged in your contract.
+
+Upon review, we will remove the fee as it was not mentioned in your agreement. We apologize for any inconvenience this may have caused.
+
+Best regards,
+[Your Company Name]"
+"ID: 30
+From: tina@biotech.com
+Subject: Discount not applied correctly
+Body: We have a 20% first-year discount code. But invoice shows full price. Please adjust and refund difference.",Billing & Payment,Billing & Payment,True,MEDIUM,MEDIUM,True,
+"ID: 31
+From: ursula@edtech.de
+Subject: Request refund for unused licenses
+Body: We paid for 100 users annually but only use 40. Can we get a pro-rated refund for the 60 unused licenses?",Returns & Refund Requests,Returns & Refund Requests,True,LOW,MEDIUM,False,
+"ID: 32
+From: victor@fintech-solutions.com
+Subject: Refund for duplicate payment
+Body: We accidentally paid the same invoice twice (INV-789). Please refund one payment of €2,300.",Returns & Refund Requests,Returns & Refund Requests,True,MEDIUM,MEDIUM,True,
+"ID: 33
+From: wendy@buildco.com
+Subject: Return of licenses – we switched to competitor
+Body: We are leaving TechFlow. We have 9 months left on our annual plan. Request refund for remaining period as per contract section 5.2.",Returns & Refund Requests,Returns & Refund Requests,True,MEDIUM,MEDIUM,True,"Thank you for reaching out. According to our policy, we can process a refund for unused annual plans within 30 days of delivery. Since you are requesting a refund for the remaining period of your current plan, we will need to review your specific case to ensure it aligns with our policy.
+
+Please provide us with the necessary details so we can proceed with your request. If you have any questions, feel free to reply to this email.
+
+Best regards,
+[Your Name]"
+"ID: 34
+From: xavier@quantum.de
+Subject: Refund for unusable API feature
+Body: We paid extra €500/year for API webhooks, but webhooks have never worked. Request refund of that add-on fee.",Returns & Refund Requests,Returns & Refund Requests,True,LOW,MEDIUM,False,
+"ID: 35
+From: yara@mobility.ai
+Subject: Wrong subscription tier – refund difference
+Body: We were charged for Enterprise but we only signed up for Pro. Please refund the difference (€200/month for last 3 months).",Returns & Refund Requests,Returns & Refund Requests,True,MEDIUM,MEDIUM,True,
+"ID: 36
+From: zack@legalzoom.io
+Subject: Refund for non-functional add-on
+Body: We bought 'Advanced Reporting' add-on for €300 but the reports are exactly the same as basic. Please refund.",Returns & Refund Requests,Returns & Refund Requests,True,MEDIUM,MEDIUM,True,"Thank you for contacting us. According to our policy, you can return the 'Advanced Reporting' add-on within 30 days of delivery for a full refund or exchange if it is unused. To process the refund, please generate a prepaid return label from your order page. If you need further assistance or the return label generation process is not working, please create a new ticket.
+
+Best regards,
+[Your Company Name]"
+"ID: 37
+From: anna@hrcloud.de
+Subject: Cancel and refund within 14 days
+Body: We signed up 10 days ago and wish to cancel under EU right of withdrawal. Please refund full amount of €1,200.",Returns & Refund Requests,Returns & Refund Requests,True,URGENT,MEDIUM,False,"Thank you for contacting us. According to our policy, we can process your refund within 5-10 business days. Please note that the refund will be credited to the original payment method. If you haven't received the refund after this period, please let us know and we will log a ticket for further investigation.
+
+Best regards,
+[Your Company Name]"
+"ID: 38
+From: brian@datadriven.com
+Subject: Partial refund for outage period
+Body: Your service had 48 hours of downtime last month. We request a 2/30 refund of our monthly fee (€320).",Returns & Refund Requests,Returns & Refund Requests,True,LOW,MEDIUM,False,"Thank you for reaching out.
+
+We understand that you experienced 48 hours of downtime last month, and we apologize for any inconvenience this caused. According to our policy, we can process a full refund or exchange for unused items within 30 days of delivery. However, since this issue pertains to a service outage rather than an unused product, we will need to escalate this to our support team for further review.
+
+Please allow us some time to investigate and we will get back to you with a resolution as soon as possible.
+
+Best regards,
+[Your Company Name]"
+"ID: 39
+From: carla@logistyx.de
+Subject: Refund request – double charge for add-on
+Body: We were charged twice for the 'Audit Log' add-on in March and April. Please refund one charge per month.",Returns & Refund Requests,Returns & Refund Requests,True,MEDIUM,MEDIUM,True,"Thank you for reaching out to us regarding the double charge for the 'Audit Log' add-on in March and April. We understand the inconvenience this has caused you.
+
+Based on our policy, we will process a refund for one charge per month. Please allow 5-10 business days for the refund to appear on your original payment method.
+
+If you haven't received the refund within this timeframe, please let us know and we will log a ticket to investigate further.
+
+Best regards,
+[Your Company Name]"
+"ID: 40
+From: daniel@creativecloud.com
+Subject: License return – purchased by mistake
+Body: I accidentally ordered 20 extra user licenses. Order made 1 hour ago. Can you cancel and refund?",Returns & Refund Requests,Returns & Refund Requests,True,URGENT,MEDIUM,False,
+"ID: 41
+From: emily@scaleup.de
+Subject: How to add team members?
+Body: We just signed up. Where do I add my colleagues? I can't find the 'Users' section in the dashboard. Please send instructions.",General Questions / FAQs,General Questions / FAQs,True,LOW,MEDIUM,False,"Hello Emily,
+
+Thank you for reaching out. To add your colleagues, please navigate to the 'Settings' tab in the dashboard. From there, you can click on 'Users' to manage your team members.
+
+If you have any further questions or need assistance, feel free to reach out.
+
+Best regards,
+[Your Company Name]"
+"ID: 42
+From: fred@greenfield.energy
+Subject: Do you offer on-premises deployment?
+Body: We have strict data residency rules. Does TechFlow have an on-prem version? If yes, pricing?",General Questions / FAQs,General Questions / FAQs,True,LOW,LOW,True,"Hello Fred,
+
+TechFlow currently does not offer an on-premises deployment option. Our focus is on cloud-based solutions to ensure flexibility and scalability.
+
+If you have any further questions or need additional information, please feel free to reach out.
+
+Best regards,
+[Your Name]"
+"ID: 43
+From: gina@healthdata.com
+Subject: Supported file types for attachments
+Body: What file types can we attach to tasks? Can we attach .psd or .ai files? Documentation doesn't specify.",General Questions / FAQs,General Questions / FAQs,True,LOW,LOW,True,"Hello Gina,
+
+We currently support a variety of file types for attachments, but .psd and .ai files are not among them. Our system is designed to handle common document formats such as .pdf, .doc, .docx, .txt, and image formats like .jpg, .png, and .gif.
+
+If you have any further questions or need assistance, please don't hesitate to reach out.
+
+Best regards,
+[Your Company Name]"
+"ID: 44
+From: hank@mobility.ai
+Subject: Is there a free trial for Enterprise?
+Body: We want to test Enterprise features (audit logs, SSO) before committing. Do you offer a 14-day trial?",General Questions / FAQs,General Questions / FAQs,True,LOW,LOW,True,"Hello Hank,
+
+Thank you for your inquiry. We do not currently offer a free trial for our Enterprise features. However, you can sign up for a free account and test the basic features for a limited time. For a more comprehensive evaluation of the Enterprise features, you may consider reaching out to our sales team for a demo.
+
+Best regards,
+[Your Name]"
+"ID: 45
+From: iris@finwave.de
+Subject: GDPR compliance details
+Body: Can you share your Data Processing Agreement and subprocessor list? Our legal team needs it for compliance.",General Questions / FAQs,General Questions / FAQs,True,MEDIUM,MEDIUM,True,"Dear Iris,
+
+Thank you for your request. Our Data Processing Agreement and subprocessor list can be found in our company's internal documentation. If you need assistance accessing them, please let us know.
+
+Best regards,
+[Your Company Name]"
+"ID: 46
+From: james@archviz.de
+Subject: How to export all projects?
+Body: We may need to migrate data. Is there a bulk export feature for all projects, tasks, and comments? Format?",General Questions / FAQs,General Questions / FAQs,True,LOW,MEDIUM,False,"Hi James,
+
+Thank you for your inquiry. We do not currently have a bulk export feature for all projects, tasks, and comments. However, you can export individual projects or tasks through the 'Export' option in the 'Actions' menu.
+
+For a more detailed export, you may need to manually export each project and then combine them. The format for exporting is CSV, which can be opened in Excel or Google Sheets.
+
+If you need further assistance or have any other questions, feel free to reach out.
+
+Best regards,
+[Your Name]"
+"ID: 47
+From: kelly@codebase.de
+Subject: API rate limits?
+Body: What are the rate limits for the REST API? I can't find it in your API docs. We need for integration planning.",General Questions / FAQs,General Questions / FAQs,True,LOW,LOW,True,"Hello Kelly,
+
+Thank you for your inquiry about API rate limits. Unfortunately, we couldn't find specific rate limit information in our API documentation. However, we recommend checking the official API documentation again or reaching out to our support team for more detailed guidance.
+
+If you have any further questions or need assistance, please don't hesitate to contact us.
+
+Best regards,
+[Your Company Name]"
+"ID: 48
+From: leo@smartcity.io
+Subject: Custom domain for workspace?
+Body: Can we use our own domain (project.ourcompany.com) instead of your subdomain? If yes, what's the setup process?",General Questions / FAQs,General Questions / FAQs,True,LOW,LOW,True,"Hello Leo,
+
+Thank you for your inquiry. At this time, we do not support using your own custom domain for workspaces. However, we appreciate your interest and will consider it for future updates.
+
+If you have any other questions or need further assistance, please don't hesitate to reach out.
+
+Best regards,
+[Your Name]"
+"ID: 49
+From: maria@retailcore.com
+Subject: Do you have a Slack integration?
+Body: We'd like to receive task notifications in Slack. Is there a native integration or webhook setup?",General Questions / FAQs,General Questions / FAQs,True,LOW,LOW,True,"Hello Maria,
+
+Thank you for your inquiry. At this time, we do not have a native Slack integration or webhook setup. However, you can set up a custom integration using webhooks to send task notifications to Slack.
+
+If you need further assistance or have any other questions, please feel free to reach out.
+
+Best regards,
+[Your Company Name]"
+"ID: 50
+From: nick@buildcycle.com
+Subject: What's your SLA for support tickets?
+Body: What are the guaranteed response times for different priorities? We need this for our internal vendor assessment.",General Questions / FAQs,General Questions / FAQs,True,LOW,LOW,True,"Support is available Monday-Friday, 9am-6pm in your local time zone. Outside those hours, replies go out the next business day. This can usually just be told directly to the customer without a ticket."
+"ID: 51
+From: olga@datadriven.com
+Subject: Worst support experience ever
+Body: We've been waiting 5 days for a reply on ticket #12345. This is completely unacceptable for a paid service. We are considering switching vendors and will tell everyone in our network.",Complaints & Escalations,Complaints & Escalations,True,URGENT,URGENT,True,"Dear Olga,
+
+Thank you for bringing this to our attention. We deeply regret the delay in our response and understand your frustration. We are taking immediate action to ensure this does not happen again.
+
+We are currently investigating the delay and will provide you with a detailed update as soon as possible. In the meantime, please know that we are committed to resolving this issue swiftly.
+
+Best regards,
+[Your Company Name]"
+"ID: 52
+From: paul@buildco.com
+Subject: Billing error ignored for weeks
+Body: I reported a double charge on May 10, and your team did nothing. Now you charge late fees? This is outrageous. Escalate to your manager now.",Complaints & Escalations,Billing & Payment,False,URGENT,URGENT,True,
+"ID: 53
+From: rachel@edtech.de
+Subject: Lack of transparency on data breach
+Body: We heard from a third party that you had a security incident last month. Why were customers not notified? This is a serious compliance violation.",Complaints & Escalations,Complaints & Escalations,True,URGENT,URGENT,True,
+"ID: 54
+From: steve@fintech-solutions.com
+Subject: Sales team promised features that don't exist
+Body: Your sales rep told us 'automatic time tracking' exists. After paying, we learned it's not a feature. This is false advertising. I want a refund and an apology.",Complaints & Escalations,Complaints & Escalations,True,URGENT,MEDIUM,False,"Dear Steve,
+
+Thank you for bringing this to our attention. We sincerely apologize for any confusion or frustration caused by our sales team's representation of our product features.
+
+Upon investigation, it appears that the feature 'automatic time tracking' was not accurately represented. We understand your dissatisfaction and will ensure that our sales team provides more accurate information in the future.
+
+As a gesture of goodwill, we will process a refund for your purchase. Please allow 5 business days for the refund to be processed.
+
+We appreciate your patience and understanding as we work to improve our processes. If you have any further concerns or questions, please do not hesitate to contact us.
+
+Best regards,
+[Your Company Name]"
+"ID: 55
+From: tara@hrcloud.de
+Subject: Account deactivated without notice
+Body: You deactivated our account for 'non-payment' despite us showing bank statements. We lost 3 days of work. This is completely unacceptable.",Complaints & Escalations,Complaints & Escalations,True,URGENT,MEDIUM,False,"Dear Tara,
+
+Thank you for bringing this to our attention. We deeply apologize for any inconvenience caused by the deactivation of your account.
+
+Upon reviewing the situation, it appears that the deactivation was due to non-payment, despite the bank statements you provided. We understand the frustration this has caused, and we are taking steps to ensure this does not happen again.
+
+To resolve this issue, we will be investigating the payment status and will contact you shortly with further steps. In the meantime, please allow us some time to verify the details.
+
+We appreciate your patience and understanding as we work to resolve this matter.
+
+Best regards,
+[Your Name]"
+"ID: 56
+From: ursa@healthdata.com
+Subject: Support agent rude and unhelpful
+Body: Agent John D. told me 'read the docs' and closed my ticket. I am escalating to your CEO. This is how you treat paying customers?",Complaints & Escalations,Complaints & Escalations,True,MEDIUM,URGENT,False,
+"ID: 57
+From: vince@logistyx.de
+Subject: Repeated downtime – violating SLA
+Body: Your service had 4 outages this month, total 6 hours. Our SLA says 99.9% uptime. We demand service credits as per contract.",Complaints & Escalations,Technical / IT Problems,False,URGENT,URGENT,True,
+"ID: 58
+From: willa@mobility.ai
+Subject: Hidden fees discovered
+Body: You charged us €500 for 'API overage' without any warning or documentation on limits. This feels like a scam. Remove the charge.",Complaints & Escalations,Billing & Payment,False,MEDIUM,MEDIUM,True,"Thank you for bringing this to our attention. We understand your concern about the unexpected API overage charge. According to our company policy, duplicate charges are typically resolved within 5-7 business days once a ticket is logged. Please let us know if you have any further questions or if this charge is indeed a duplicate, and we will proceed with the necessary steps to resolve it.
+
+Best regards,
+[Your Name]"
+"ID: 59
+From: xander@quantum.de
+Subject: Lost our project data
+Body: A project with 3 months of work disappeared from your platform. Support says 'cannot restore'. This is catastrophic. Legal will be in touch.",Complaints & Escalations,Complaints & Escalations,True,URGENT,URGENT,True,
+"ID: 60
+From: yasmine@scaleup.de
+Subject: Automatic renewal ignored cancellation
+Body: We cancelled in writing 30 days before renewal. You renewed anyway and charged our card. This is illegal. Refund immediately or we dispute.",Complaints & Escalations,Billing & Payment,False,URGENT,URGENT,True,"Dear Yasmine,
+
+Thank you for bringing this to our attention. We understand your concern and apologize for the inconvenience.
+
+We have reviewed your case and found that the automatic renewal was processed despite your cancellation request. This is a billing issue and we will process a refund for the charged amount as per our company policy. The refund will be processed within 5-7 business days.
+
+If you have any further questions or need assistance, please do not hesitate to contact us.
+
+Best regards,
+[Your Company Name]"

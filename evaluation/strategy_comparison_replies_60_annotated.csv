@@ -1,0 +1,944 @@
+strategy,email_id,subject,to_address,reply_subject,reply_body,annotation,wiki_ref,rationale
+react,1,Order #TF-2341 not delivered,clark.ent@buildco.com,Urgent: Update on Your Order #TF-2341,"Dear Clark,
+
+Thank you for reaching out. I understand the urgency of your request for the activation code for your 50 user licenses of our project management tool.
+
+Unfortunately, it seems that the activation codes have not been sent yet. I apologize for the inconvenience and any delays you may be experiencing. As per our company policy, if an order is more than 3 days late, we offer a $10 credit or free reshipment.
+
+In the meantime, please check your spam folder for the tracking information for your order. If you do not find it there, please let me know and I will resend it immediately.
+
+Thank you for your patience and understanding. We are working to resolve this issue as quickly as possible.
+
+Best regards,
+[Your Name]",0,wiki-001/002,"Applies package-delivery policy ($10 credit, free reshipment, tracking-in-spam) to a digital license activation request. Also asserts 'activation codes have not been sent yet' with no basis."
+plan_execute,1,Order #TF-2341 not delivered,,,,,,no reply body generated - not scored
+self_correction,1,Order #TF-2341 not delivered,clark.ent@buildco.com,Urgent: Activation Code for Your Order,"Dear Clark,
+
+Thank you for reaching out. I understand the urgency of your situation. We apologize for any inconvenience caused.
+
+It seems there might have been a misunderstanding regarding the activation codes. Our system does not allow us to manually apply discount codes after the purchase has been made. If you believe the activation code was not applied correctly, please log a ticket with the order details, and we will investigate and resolve the issue as soon as possible.
+
+In the meantime, you can try logging into your account directly or contact our support team for further assistance.
+
+Best regards,
+[Your Company Name]",0,wiki-006 (wrong),Answers an activation-code request with the discount-code policy. Entirely irrelevant article; would need a full rewrite.
+react,2,Missing license keys after payment,,,,,,no reply body generated - not scored
+plan_execute,2,Missing license keys after payment,,,,,,no reply body generated - not scored
+self_correction,2,Missing license keys after payment,,,,,,no reply body generated - not scored
+react,3,Order placed but no confirmation,,,,,,no reply body generated - not scored
+plan_execute,3,Order placed but no confirmation,,,,,,no reply body generated - not scored
+self_correction,3,Order placed but no confirmation,,,,,,no reply body generated - not scored
+react,4,License activation delayed – order #TF-2765,,,,,,no reply body generated - not scored
+plan_execute,4,License activation delayed – order #TF-2765,,,,,,no reply body generated - not scored
+self_correction,4,License activation delayed – order #TF-2765,,,,,,no reply body generated - not scored
+react,5,Wrong product delivered on order,,,,,,no reply body generated - not scored
+plan_execute,5,Wrong product delivered on order,,,,,,no reply body generated - not scored
+self_correction,5,Wrong product delivered on order,,,,,,no reply body generated - not scored
+react,6,Invoice not received after order,linda@fintech-solutions.com,Re: Invoice not received after order,"Thank you for your email regarding your order #TF-3100. We have noted that you did not receive an invoice for this order, and we are currently investigating the issue. We will ensure that the invoice is resent as soon as possible. If this is a recurring issue, please let us know so we can address it promptly.
+
+In the meantime, if you have any further questions or concerns, please do not hesitate to reach out.
+
+Best regards,
+[Your Company Name]",1,none,"No fabricated policy; acknowledges and commits to resending the invoice. Minor edit needed: no timeline or ticket reference, and 'if this is a recurring issue' is odd phrasing."
+plan_execute,6,Invoice not received after order,,,,,,no reply body generated - not scored
+self_correction,6,Invoice not received after order,,,,,,no reply body generated - not scored
+react,7,Order status shows 'pending' for 2 days,,,,,,no reply body generated - not scored
+plan_execute,7,Order status shows 'pending' for 2 days,robert@innovate.io,Re: Order status shows 'pending' for 2 days,"Thank you for your patience. We understand the urgency of your order. Our records show that your order #TF-2987 has been charged and is currently pending. Typically, tracking information is sent within 24 hours of shipment. If you haven't received the tracking information, please check your spam folder. If the issue persists, we will investigate further and update you promptly.
+
+Best regards,
+[Your Company Name]",1,wiki-002,"Correctly uses the 24-hour tracking-email rule and spam-folder step. Minor edit: 'our records show' overstates verification, and Friday deadline is unaddressed."
+self_correction,7,Order status shows 'pending' for 2 days,robert@innovate.io,Re: Order status shows 'pending' for 2 days,"Thank you for your patience, Robert. Standard delivery is 5-7 business days. Your order #TF-2987 has not yet shipped, which is why it shows as 'pending'. We will ensure it is dispatched as soon as possible to meet your Friday deadline.
+
+In the meantime, if you have not already, please check your spam folder for the tracking number email. If you do not receive it within the next 24 hours, please let us know so we can resend it.
+
+If you have any further concerns, please do not hesitate to contact us.
+
+Best regards,
+[Your Name]",0,wiki-001,"Correct 5-7 day quote, but then invents order state ('has not yet shipped') and promises dispatch in time for Friday with no basis."
+react,8,Quantity mismatch on delivery,,,,,,no reply body generated - not scored
+plan_execute,8,Quantity mismatch on delivery,,,,,,no reply body generated - not scored
+self_correction,8,Quantity mismatch on delivery,,,,,,no reply body generated - not scored
+react,9,Order confirmation but no access,,,,,,no reply body generated - not scored
+plan_execute,9,Order confirmation but no access,,,,,,no reply body generated - not scored
+self_correction,9,Order confirmation but no access,,,,,,no reply body generated - not scored
+react,10,Can't find order history,nina@scaleup.de,Re: Can't find order history,"Dear Nina,
+
+Thank you for reaching out. It sounds like you're having trouble finding an invoice for your order #TF-1892. We're here to help!
+
+Please try checking your order page again. If you still can't find the invoice, I can email it to you directly. Could you provide me with your order number and the email address associated with the order, so I can locate the invoice for you?
+
+If you have any further issues or concerns, please let us know.
+
+Best regards,
+[Your Name]",1,none,"No hallucinated policy. Minor edit: re-asks for the order number and email address the customer already supplied, and re-suggests the order page the customer said is empty."
+plan_execute,10,Can't find order history,nina@scaleup.de,Re: Can't find order history,"Dear Nina,
+
+Thank you for reaching out. We are unable to locate the invoice for your previous order. Could you please provide us with your email address associated with order #TF-1892 so we can resend it to you?
+
+If you have any further questions or need assistance, please don't hesitate to contact us.
+
+Best regards,
+[Your Company Name]",0,none,"'We are unable to locate the invoice' asserts a lookup that did not happen, then asks for an email address already present in the sender field."
+self_correction,10,Can't find order history,nina@scaleup.de,Re: Can't find order history,"Dear Nina,
+
+Thank you for reaching out. I understand you need to re-download an invoice for your order #TF-1892. Unfortunately, our system doesn't allow us to resend invoices directly. However, you can access your order history and download the invoice from your account page.
+
+If you still can't find it, please log in to your account and navigate to the order history section. If you need further assistance, feel free to reach out to our support team.
+
+Best regards,
+[Your Name]",0,none,Invents a system limitation ('our system doesn't allow us to resend invoices') and directs the customer to the order history page they explicitly reported as empty.
+react,11,API returns 500 error constantly,,,,,,no reply body generated - not scored
+plan_execute,11,API returns 500 error constantly,,,,,,no reply body generated - not scored
+self_correction,11,API returns 500 error constantly,,,,,,no reply body generated - not scored
+react,12,Web app extremely slow after update,,,,,,no reply body generated - not scored
+plan_execute,12,Web app extremely slow after update,,,,,,no reply body generated - not scored
+self_correction,12,Web app extremely slow after update,,,,,,no reply body generated - not scored
+react,13,SSO login broken for all users,,,,,,no reply body generated - not scored
+plan_execute,13,SSO login broken for all users,,,,,,no reply body generated - not scored
+self_correction,13,SSO login broken for all users,,,,,,no reply body generated - not scored
+react,14,Mobile app crashes on Android,,,,,,no reply body generated - not scored
+plan_execute,14,Mobile app crashes on Android,,,,,,no reply body generated - not scored
+self_correction,14,Mobile app crashes on Android,,,,,,no reply body generated - not scored
+react,15,Reports not exporting to PDF,emma@greenfield.energy,Re: Reports not exporting to PDF,"Dear Emma,
+
+Thank you for reaching out. We have noted your issue and our IT team is currently working on it. We will update you as soon as we have more information.
+
+Best regards,
+[Your Company Name]",1,none,"Safe holding reply with no invented policy. Minor edit: very thin, and 'our IT team is currently working on it' slightly overstates what is known."
+plan_execute,15,Reports not exporting to PDF,emma@greenfield.energy,Re: Reports not exporting to PDF,"Thank you for your email. We have noted the issue with the 'Export to PDF' button and have escalated it to our IT support team. They are currently working on it and will provide an update as soon as possible. We understand the urgency of this matter and will ensure it is prioritized.
+
+If you have any further questions or need assistance, please feel free to reach out.
+
+Best regards,
+[Your Name]",1,none,"Acceptable holding reply, escalation stated. Minor edit: 'currently working on it' is unverified and the Friday deadline is only vaguely acknowledged."
+self_correction,15,Reports not exporting to PDF,,,,,,no reply body generated - not scored
+react,16,Webhook delivery failing,,,,,,no reply body generated - not scored
+plan_execute,16,Webhook delivery failing,,,,,,no reply body generated - not scored
+self_correction,16,Webhook delivery failing,,,,,,no reply body generated - not scored
+react,17,Task assignment notifications not sent,grace@hrcloud.de,Re: Task assignment notifications not sent,"Thank you for bringing this to our attention, Grace.
+
+We have logged a ticket to investigate the issue with task assignment notifications not being sent. We will update you as soon as we have more information.
+
+In the meantime, if you need to communicate task assignments to your team, you can use the internal messaging system or update them manually in the task list.
+
+If you have any further questions or need assistance, please don't hesitate to reach out.
+
+Best regards,
+[Your Name]",0,none,Invents a product feature ('you can use the internal messaging system') as a workaround.
+plan_execute,17,Task assignment notifications not sent,,,,,,no reply body generated - not scored
+self_correction,17,Task assignment notifications not sent,,,,,,no reply body generated - not scored
+react,18,Search function returns incomplete results,,,,,,no reply body generated - not scored
+plan_execute,18,Search function returns incomplete results,,,,,,no reply body generated - not scored
+self_correction,18,Search function returns incomplete results,,,,,,no reply body generated - not scored
+react,19,Two-factor authentication loop,,,,,,no reply body generated - not scored
+plan_execute,19,Two-factor authentication loop,,,,,,no reply body generated - not scored
+self_correction,19,Two-factor authentication loop,,,,,,no reply body generated - not scored
+react,20,Error when uploading large CSV,,,,,,no reply body generated - not scored
+plan_execute,20,Error when uploading large CSV,,,,,,no reply body generated - not scored
+self_correction,20,Error when uploading large CSV,,,,,,no reply body generated - not scored
+react,21,Overcharged on annual subscription,,,,,,no reply body generated - not scored
+plan_execute,21,Overcharged on annual subscription,karen@retailcore.com,Re: Overcharged on annual subscription,"Thank you for bringing this to our attention. We have identified the issue and are processing a refund for the overcharged amount. The refund will be issued within 5-7 business days. If you have any further concerns or the issue is not resolved after this period, please let us know.",0,wiki-005 (wrong),Confirms an overcharge that was never verified and applies the duplicate-charge refund window to a pricing dispute.
+self_correction,21,Overcharged on annual subscription,,,,,,no reply body generated - not scored
+react,22,Credit card charged twice for same month,leo@edtech.de,Re: Credit card charged twice for same month,"Dear Leo,
+
+Thank you for bringing this to our attention. We understand the inconvenience and are looking into the duplicate charge on your account.
+
+Based on our records, this is likely due to a double-submitted payment form. We will process a refund for one of the charges automatically within 5-7 business days.
+
+If the issue persists or you have further concerns, please let us know.
+
+Best regards,
+[Your Company Name]",2,wiki-005,"Correct cause (double-submitted payment form) and correct 5-7 business day window, with a follow-up path if the refund does not appear. Professional tone, addresses the specific charge. Sendable."
+plan_execute,22,Credit card charged twice for same month,leo@edtech.de,Re: Credit card charged twice for same month,"Dear Leo,
+
+Thank you for bringing this to our attention. We understand the inconvenience and apologize for the duplicate charge.
+
+This issue is usually caused by a double-submission of the payment form. We will process a refund for the duplicate charge within 5-7 business days.
+
+If you do not see the refund by then, please let us know so we can investigate further.
+
+Best regards,
+[Your Company Name]",2,wiki-005,"Grounded in the duplicate-charge article with the correct timeline and an explicit escalation offer. Apologises, addresses the specific issue, no invented detail. Sendable."
+self_correction,22,Credit card charged twice for same month,leo@edtech.de,Re: Credit card charged twice for same month,"Dear Leo,
+
+Thank you for bringing this to our attention. We have noted the duplicate charge on your account and have logged a ticket to investigate and resolve this issue. Refunds for confirmed duplicates are automatic within 5-7 business days once a ticket is logged.
+
+If you do not see the refund within this timeframe, please let us know so we can escalate the matter.
+
+Best regards,
+[Your Company Name]",2,wiki-005,"Fully grounded: correct cause, ticket logged, correct 5-7 day automatic refund window, and the 7-day escalation path. Appropriate tone, sendable as-is."
+react,23,Tax ID missing on invoices,,,,,,no reply body generated - not scored
+plan_execute,23,Tax ID missing on invoices,,,,,,no reply body generated - not scored
+self_correction,23,Tax ID missing on invoices,,,,,,no reply body generated - not scored
+react,24,Payment not reflected on account,noah@finlegal.de,Re: Payment not reflected on account,"Thank you for your email. We have noted the issue and are currently investigating why your payment of €4,800 on May 28 is not reflected in your account. We will update you as soon as we have more information.
+
+In the meantime, please allow up to 5-7 business days for the update to reflect. If the issue persists after this time, please do not hesitate to follow up.
+
+Best regards,
+[Your Company Name]",0,wiki-005 (wrong),"Borrows the 5-7 day duplicate-refund window and applies it to a bank transfer reconciliation, implying a timeline that has no basis."
+plan_execute,24,Payment not reflected on account,noah@finlegal.de,Re: Payment not reflected on account,"Thank you for your email.
+
+We appreciate your patience and apologize for any inconvenience this may have caused. We have noted your payment and are currently investigating the issue. If a duplicate charge was made, the refund will be processed within 5-7 business days.
+
+If you have any further questions or concerns, please don't hesitate to reach out.
+
+Best regards,
+[Your Company Name]",0,wiki-005 (wrong),"Raises a duplicate charge that does not exist in this case; the customer reports an unrecorded payment, not a double charge."
+self_correction,24,Payment not reflected on account,noah@finlegal.de,Re: Payment not reflected on account,"Thank you for bringing this to our attention. We have noted your recent bank transfer of €4,800 on May 28. Our systems are currently processing this payment, and we will update your account as soon as possible. If the issue persists, please allow up to 7 business days for the update to reflect. If you have any further questions, feel free to reach out.",0,none,Asserts 'our systems are currently processing this payment' with no basis and invents a 7-business-day window.
+react,25,Price increase without notice,olivia@smartcity.io,Re: Price increase without notice,"Thank you for bringing this to our attention. We are currently investigating the price increase on your May invoice, which is 15% higher than April. No email was sent regarding pricing changes, and we are looking into this matter.
+
+In the meantime, please note that our standard billing policy does not allow for retroactive price adjustments without prior notification. If you have a valid discount code that was not applied, please log a separate ticket and we will investigate the issue.
+
+We will keep you updated on the progress of this investigation and appreciate your patience.",0,wiki-006 (wrong),"Invents a billing policy on retroactive price adjustments, then pulls in the discount-code article, which is unrelated to an unannounced price increase."
+plan_execute,25,Price increase without notice,olivia@smartcity.io,Re: Price increase without notice,"Thank you for bringing this to our attention, Olivia. We are currently investigating the discrepancy in your invoice and will update you as soon as we have more information.
+
+In the meantime, please note that price changes are not communicated via email, but are reflected in your invoices. If you have any further questions or concerns, please feel free to reach out.",0,none,"Fabricates a communication policy: 'price changes are not communicated via email, but are reflected in your invoices'."
+self_correction,25,Price increase without notice,olivia@smartcity.io,Re: Price increase without notice,"Thank you for bringing this to our attention, Olivia. We are currently investigating the discrepancy in your May invoice, which is 15% higher than April. Our billing policy does not allow for retroactive price changes via support; any valid discount code should have been applied at the time of purchase. We will update you as soon as we have more information. If you believe this is a billing error, please log a ticket so we can look into it further.",0,wiki-006 (wrong),Answers a price-increase complaint with the discount-code policy and an invented rule about retroactive price changes.
+react,26,Cancellation request – billing continues,paul@greenenergy.de,Re: Cancellation request – billing continues,"Thank you for your patience. We have noted your cancellation request and the ongoing billing issue. Our billing team is currently looking into this matter and will ensure that your subscription is properly terminated and any overcharged amounts are refunded as soon as possible. We appreciate your understanding and cooperation.
+
+For your reference, this is in relation to ticket #3ccab808-fa9b-81d0-8529-e5075e5163e5.
+
+Best regards,
+[Your Name]",1,none,Acknowledges the cancellation and commits to investigation without inventing policy. Minor edit: exposes a raw internal ticket UUID instead of the customer's reference #C789.
+plan_execute,26,Cancellation request – billing continues,,,,,,no reply body generated - not scored
+self_correction,26,Cancellation request – billing continues,,,,,,no reply body generated - not scored
+react,27,Cannot update payment method,,,,,,no reply body generated - not scored
+plan_execute,27,Cannot update payment method,,,,,,no reply body generated - not scored
+self_correction,27,Cannot update payment method,,,,,,no reply body generated - not scored
+react,28,Invoice currency wrong,rose@logi.solutions,Re: Invoice currency wrong,"Dear Rose,
+
+Thank you for bringing this to our attention. We apologize for the confusion regarding the currency on your invoice.
+
+We have reviewed the issue, and it appears to be a one-time error. We will ensure that all future invoices are issued in the correct currency, EUR, based on your billing address in Germany.
+
+If you have any further concerns or require additional assistance, please do not hesitate to reach out.
+
+Best regards,
+[Your Company Name]",0,none,"Fabricates a diagnosis ('it appears to be a one-time error') and only fixes future invoices, ignoring the request to reissue INV-512."
+plan_execute,28,Invoice currency wrong,rose@logi.solutions,Re: Invoice currency wrong,"Thank you for bringing this to our attention. We have noted the discrepancy and are currently investigating the issue. We will ensure that your next invoice is issued in the correct currency, EUR. We apologize for any inconvenience this may have caused.
+
+If you have any further questions or need assistance, please do not hesitate to contact us.",0,none,"Commits to correcting future invoices only; the actual request — a corrected EUR invoice for INV-512 — goes unanswered, and the commitment is unsupported."
+self_correction,28,Invoice currency wrong,,,,,,no reply body generated - not scored
+react,29,Early termination fee not agreed,sam@archviz.de,Re: Early termination fee not agreed,"Thank you for bringing this to our attention. Our policy does not include an early termination fee, and we apologize for any confusion. We will remove the fee from your account.
+
+If you have any further questions or need assistance, please let us know.
+
+Best regards,
+[Your Company Name]",0,none,"Asserts 'our policy does not include an early termination fee' and unilaterally removes a EUR 1,500 charge. No wiki basis for either."
+plan_execute,29,Early termination fee not agreed,,,,,,no reply body generated - not scored
+self_correction,29,Early termination fee not agreed,,,,,,no reply body generated - not scored
+react,30,Discount not applied correctly,,,,,,no reply body generated - not scored
+plan_execute,30,Discount not applied correctly,tina@biotech.com,Re: Discount not applied correctly,"Thank you for bringing this to our attention. We have identified that the 20% first-year discount code was not applied to your invoice, and we are currently working on resolving this issue. We will ensure the difference is refunded as soon as possible.
+
+For your reference, our policy states that discount codes only apply if entered at checkout and cannot be applied retroactively by support. If a valid code visibly failed to apply, please log a ticket and we will handle it promptly.
+
+We apologize for any inconvenience this may have caused and appreciate your patience as we address this matter.",1,wiki-006,"Correct article and correct outcome: valid code that failed to apply gets a ticket and a refund of the difference. Minor edit: recites the internal policy text verbatim, including the instruction to log a ticket."
+self_correction,30,Discount not applied correctly,,,,,,no reply body generated - not scored
+react,31,Request refund for unused licenses,,,,,,no reply body generated - not scored
+plan_execute,31,Request refund for unused licenses,,,,,,no reply body generated - not scored
+self_correction,31,Request refund for unused licenses,,,,,,no reply body generated - not scored
+react,32,Refund for duplicate payment,,,,,,no reply body generated - not scored
+plan_execute,32,Refund for duplicate payment,,,,,,no reply body generated - not scored
+self_correction,32,Refund for duplicate payment,,,,,,no reply body generated - not scored
+react,33,Return of licenses – we switched to competitor,,,,,,no reply body generated - not scored
+plan_execute,33,Return of licenses – we switched to competitor,,,,,,no reply body generated - not scored
+self_correction,33,Return of licenses – we switched to competitor,,,,,,no reply body generated - not scored
+react,34,Refund for unusable API feature,,,,,,no reply body generated - not scored
+plan_execute,34,Refund for unusable API feature,,,,,,no reply body generated - not scored
+self_correction,34,Refund for unusable API feature,xavier@quantum.de,Re: Refund for unusable API feature,"Thank you for your email regarding the refund for the unused API webhooks feature.
+
+We understand that the webhooks have not been working as expected, and we are sorry for the inconvenience.
+
+According to our Returns & Exchanges Policy, items can be returned within 30 days of delivery for a full refund or exchange if unused. Since the webhooks feature was an add-on, you should be able to request a refund for that specific add-on fee.
+
+To initiate the refund process, please log into your account and generate a prepaid return label from your order page. This should be a straightforward process and no ticket is needed for a standard request.
+
+If you encounter any issues or need further assistance, please let us know.
+
+Best regards,
+[Your Company Name]",0,wiki-007 (wrong),Tells the customer to generate a prepaid return label for an API add-on and invents an entitlement ('you should be able to request a refund for that specific add-on fee').
+react,35,Wrong subscription tier – refund difference,,,,,,no reply body generated - not scored
+plan_execute,35,Wrong subscription tier – refund difference,,,,,,no reply body generated - not scored
+self_correction,35,Wrong subscription tier – refund difference,,,,,,no reply body generated - not scored
+react,36,Refund for non-functional add-on,,,,,,no reply body generated - not scored
+plan_execute,36,Refund for non-functional add-on,,,,,,no reply body generated - not scored
+self_correction,36,Refund for non-functional add-on,,,,,,no reply body generated - not scored
+react,37,Cancel and refund within 14 days,anna@hrcloud.de,Refund Request Under EU Right of Withdrawal,"Thank you for reaching out. According to our policy, you can request a refund within 14 days of purchase under the EU right of withdrawal. Since you have already exceeded this timeframe, we will need to process your request through our standard refund process.
+
+Please log into your account and generate a prepaid return label to start the refund process. If you need further assistance, feel free to reach out.
+
+Best regards,
+[Your Company Name]",0,none,"Invents a 14-day withdrawal policy and then misapplies it: the customer signed up 10 days ago, so the window has not been exceeded. Directly wrong on the facts given."
+plan_execute,37,Cancel and refund within 14 days,,,,,,no reply body generated - not scored
+self_correction,37,Cancel and refund within 14 days,,,,,,no reply body generated - not scored
+react,38,Partial refund for outage period,brian@datadriven.com,Re: Partial refund for outage period,"Thank you for reaching out regarding the recent downtime and refund request.
+
+Our service experienced 48 hours of downtime last month, and we understand the inconvenience this caused. However, our policy does not allow for partial refunds based on service outages. Instead, we offer a full refund or exchange within 30 days of delivery if the item is unused.
+
+If you wish to proceed with a return, you can generate a prepaid return label from your order page. Please follow the steps there to return the item and request a full refund or exchange.
+
+If you have any further questions or need assistance, please feel free to reach out.
+
+Best regards,
+[Your Company]",0,none,"Fabricates a policy prohibiting outage-based partial refunds, then offers a physical-goods return as the alternative."
+plan_execute,38,Partial refund for outage period,brian@datadriven.com,Your Outage Refund Request is Being Handled,"Dear Brian,
+
+Thank you for bringing this to our attention. We understand the inconvenience caused by the recent downtime and are currently processing your request for a partial refund.
+
+Your case has been logged and is being reviewed by our finance team. We will provide you with an update as soon as possible.
+
+If you have any further questions or need assistance, please don't hesitate to contact us.
+
+Best regards,
+[Your Company Name]",0,none,Invents a finance team review and claims the case has been logged with it.
+self_correction,38,Partial refund for outage period,,,,,,no reply body generated - not scored
+react,39,Refund request – double charge for add-on,carla@logistyx.de,Re: Refund request – double charge for add-on,"Thank you for contacting us. We understand that you were charged twice for the 'Audit Log' add-on in March and April. We are aware of this issue and are processing your refund request. Refunds for confirmed duplicate charges are typically processed within 5-7 business days. If you do not see the refund by then, please let us know and we will expedite the process.
+
+Best regards,
+[Your Company Name]",2,wiki-005,"Names the specific add-on and both months, applies the duplicate-charge policy correctly with the 5-7 day window, and offers a follow-up path. Sendable."
+plan_execute,39,Refund request – double charge for add-on,,,,,,no reply body generated - not scored
+self_correction,39,Refund request – double charge for add-on,carla@logistyx.de,Re: Refund request – double charge for add-on,"Thank you for bringing this to our attention. We have noted your issue and it has been marked for further review. Duplicate charges are usually resolved within 5-7 business days once a ticket is logged. If you haven't received a refund by then, please let us know so we can expedite the process.
+
+Best regards,
+[Your Company Name]",2,wiki-005,"Correct policy, correct timeline, ticket-logging condition retained, and a clear escalation path. Concise but complete. Sendable."
+react,40,License return – purchased by mistake,daniel@creativecloud.com,Re: License return – purchased by mistake,"Thank you for reaching out. It's not too late to cancel your recent order of 20 extra user licenses. Please follow these steps to initiate a return:
+
+1. Log in to your Creative Cloud account.
+2. Go to the 'My Account' section.
+3. Click on 'Manage Subscriptions'.
+4. Select the subscription you wish to cancel and follow the prompts to return it.
+
+Once the return is processed, a full refund will be issued to your original payment method within 5-10 business days. If you haven't received the refund by then, please let us know so we can assist further.
+
+Best regards,
+[Your Name]",0,none,Hallucinates a four-step UI path and mistakes the customer's company name for the product ('Log in to your Creative Cloud account').
+plan_execute,40,License return – purchased by mistake,,,,,,no reply body generated - not scored
+self_correction,40,License return – purchased by mistake,,,,,,no reply body generated - not scored
+react,41,How to add team members?,emily@scaleup.de,How to Add Team Members,"Hello Emily,
+
+Thank you for reaching out. Unfortunately, the 'Users' section is not available in the current dashboard. This feature is currently under development and will be added in a future update.
+
+In the meantime, you can manage your team members through the following steps:
+1. Log in to your account.
+2. Go to the 'Settings' section.
+3. Click on 'Add Team Member'.
+
+We are working hard to improve our platform and will make sure to include this feature soon.
+
+If you have any other questions or need further assistance, please don't hesitate to contact us.
+
+Best regards,
+[Your Company Name]",0,none,"Contradicts itself: says the Users section does not exist and is 'under development', then gives steps to click 'Add Team Member'. Both claims are fabricated."
+plan_execute,41,How to add team members?,emily@scaleup.de,How to Add Team Members,"Hello Emily,
+
+Thank you for reaching out! To add your team members, please navigate to the 'Settings' tab in the dashboard. From there, you can manage your team members and invite new ones.
+
+If you have any further questions or need assistance, feel free to reach out.
+
+Best regards,
+[Your Company Name]",0,none,"Fabricates a UI path. The only navigation the wiki documents is Account > Subscription, which is unrelated to user management."
+self_correction,41,How to add team members?,,,,,,no reply body generated - not scored
+react,42,Do you offer on-premises deployment?,,,,,,no reply body generated - not scored
+plan_execute,42,Do you offer on-premises deployment?,fred@greenfield.energy,Re: Do you offer on-premises deployment?,"Thank you for your inquiry. TechFlow does not currently offer an on-premises version of our software. However, we understand the importance of data residency and are committed to addressing this need. We recommend you reach out to our sales team for more detailed information and potential solutions that align with your requirements. If you have any further questions or need assistance, please do not hesitate to contact us.",0,none,Asserts as fact that no on-premises version exists. Nothing in the wiki supports a claim about deployment options.
+self_correction,42,Do you offer on-premises deployment?,fred@greenfield.energy,Re: Do you offer on-premises deployment?,"Thank you for your inquiry. TechFlow does not currently offer an on-premises version. However, we understand the importance of data residency and are considering this feature for future development. For more information, please refer to our [FAQ on on-premises deployment](https://www.greenfield.energy/faq/on-premises-deployment). We appreciate your understanding and look forward to serving you.",0,none,"Unsupported product claim plus a fabricated link to greenfield.energy, an unrelated domain."
+react,43,Supported file types for attachments,gina@healthdata.com,Supported file types for attachments,"Hello Gina,
+
+According to our documentation, the supported file types for attachments are limited to common document formats such as .pdf, .doc, .docx, .txt, and images such as .jpg, .png, .gif. Unfortunately, we do not support .psd or .ai files at this time.
+
+If you have any further questions or need assistance, please feel free to reach out.
+
+Best regards,
+[Your Company Name]",0,none,Invents a supported file type list and attributes it to documentation that does not exist in the wiki.
+plan_execute,43,Supported file types for attachments,gina@healthdata.com,Re: Supported file types for attachments,"Hello Gina,
+
+Thank you for your question about supported file types for attachments. Our system currently supports the following file types: .doc, .docx, .pdf, .txt, .jpg, .png, and .gif.
+
+Unfortunately, we do not support .psd or .ai files at this time. These are proprietary file formats used primarily in graphic design and are not compatible with our system.
+
+If you have any further questions or need assistance, please don't hesitate to reach out.
+
+Best regards,
+[Your Name]",0,none,Invents a file type list and a rationale for excluding .psd/.ai. No grounding.
+self_correction,43,Supported file types for attachments,gina@healthdata.com,Re: Supported file types for attachments,"Hello Gina,
+
+Thank you for your question about supported file types for attachments. Unfortunately, our system does not support .psd or .ai files at this time. The file types that are currently supported include .pdf, .doc, .docx, .txt, .jpg, .png, and .gif.
+
+If you have any further questions or need assistance, please feel free to reach out.
+
+Best regards,
+[Your Company Name]",0,none,Invents a supported file type list; also contradicts the react and sequential lists for the same question.
+react,44,Is there a free trial for Enterprise?,hank@mobility.ai,Free Trial for Enterprise,"Thank you for your inquiry about the free trial for Enterprise. We do offer a 14-day trial period for our Enterprise plan. You can sign up for the trial directly from our website. Please let us know if you need any assistance setting it up or have further questions.
+
+Best regards,
+[Your Name]",0,none,Fabricates a 14-day Enterprise trial and a sign-up flow. No wiki grounding.
+plan_execute,44,Is there a free trial for Enterprise?,hank@mobility.ai,Enterprise Free Trial,"Thank you for your inquiry. We do offer a 14-day free trial for our Enterprise plan. You can sign up for the trial directly from our website and start testing the features such as audit logs and SSO.
+
+If you have any further questions or need assistance during the trial, feel free to reach out to our support team.
+
+Best regards,
+[Your Company Name]",0,none,Fabricates the same 14-day Enterprise trial and confirms audit logs and SSO are included.
+self_correction,44,Is there a free trial for Enterprise?,hank@mobility.ai,Re: Is there a free trial for Enterprise?,"Thank you for your inquiry about the Enterprise features. At this time, we do not offer a free trial for our Enterprise plan. However, you can test the features for up to 30 days as part of our free account. If you need further assistance or have any other questions, feel free to reach out.
+
+Best regards,
+[Your Name]",0,none,"Fabricates the opposite answer — no trial, but a 30-day free account. Contradicts the other strategies on the same question."
+react,45,GDPR compliance details,iris@finwave.de,Re: GDPR compliance details,"Dear Iris,
+
+Thank you for your request. Unfortunately, we do not have a public Data Processing Agreement or subprocessor list available. Our standard agreement is confidential and shared only with our partners.
+
+For your records, here is our standard delivery policy: Standard delivery is 5-7 business days. If a package is more than 3 days late, we apologize and will offer a $10 credit or free reshipment. Please let us know if you need any further assistance.
+
+Best regards,
+[Your Name]",0,wiki-001 (wrong),"Claims no public DPA exists, then pastes the parcel delivery policy ($10 credit, 5-7 day shipping) into a GDPR compliance reply."
+plan_execute,45,GDPR compliance details,iris@finwave.de,Re: GDPR compliance details,"Dear Iris,
+
+Thank you for your inquiry. We understand the importance of GDPR compliance and are committed to ensuring that all our processes meet the necessary standards.
+
+Unfortunately, we do not have a public Data Processing Agreement or subprocessor list to share. However, we can provide you with a copy of our Data Processing Agreement and subprocessor list upon request. Please let us know if you would like to proceed with this.
+
+If you have any further questions or need additional assistance, feel free to reach out.
+
+Best regards,
+[Your Name]",0,none,"Contradicts itself — no DPA is available, but one can be provided on request — and asserts both without grounding."
+self_correction,45,GDPR compliance details,iris@finwave.de,Re: GDPR compliance details,"Dear Iris,
+
+Thank you for your request. Our Data Processing Agreement and subprocessor list are standard documents that are not publicly available due to the sensitive nature of the information they contain. However, we can provide these documents to you upon request for compliance purposes.
+
+Please contact our legal department directly to request these documents. They will be able to provide you with the necessary information and ensure that all legal requirements are met.
+
+If you have any further questions or need assistance, please do not hesitate to reach out.
+
+Best regards,
+[Your Name]",0,none,Invents a confidentiality rationale and a legal department routing. No wiki article covers GDPR documentation.
+react,46,How to export all projects?,james@archviz.de,Re: How to export all projects?,"Hello James,
+
+Thank you for your inquiry. We do not currently have a bulk export feature for projects, tasks, and comments. However, you can export individual projects by navigating to the project page and clicking on the 'Export' button at the top right corner. The format will be a CSV file.
+
+If you need to migrate data, you may consider exporting each project individually and then importing them into your new system. We are working on improving our export features, and we will update you once a bulk export option is available.
+
+If you have any further questions or need assistance, please feel free to reach out.
+
+Best regards,
+[Your Name]",0,none,Fabricates an Export button location and a CSV output format.
+plan_execute,46,How to export all projects?,james@archviz.de,Re: How to export all projects?,"Hello James,
+
+Thank you for your inquiry. We do not currently have a bulk export feature for all projects, tasks, and comments. However, you can export individual projects or tasks by navigating to the respective section and clicking on the 'Export' button.
+
+For a more comprehensive export, you might consider using our API or contacting our support team to discuss custom solutions.
+
+If you have any further questions or need assistance, please don't hesitate to reach out.
+
+Best regards,
+[Your Name]",0,none,Fabricates an export button and suggests an API workaround with no basis.
+self_correction,46,How to export all projects?,james@archviz.de,Re: How to export all projects?,"Hello James,
+
+Thank you for your inquiry. Unfortunately, there isn't a bulk export feature for projects, tasks, and comments at this time. However, you can export individual projects by following these steps:
+
+1. Go to the project you want to export.
+2. Click on the three dots in the top right corner.
+3. Select 'Export' from the dropdown menu.
+4. Choose the format you prefer (e.g., CSV, JSON).
+
+For a complete migration of all your data, you might consider exporting each project individually and then importing it into your new system.
+
+If you have any further questions or need assistance, feel free to reach out.
+
+Best regards,
+[Your Name]",0,none,Fabricates a three-dots menu path and CSV/JSON format options.
+react,47,API rate limits?,,,,,,no reply body generated - not scored
+plan_execute,47,API rate limits?,,,,,,no reply body generated - not scored
+self_correction,47,API rate limits?,,,,,,no reply body generated - not scored
+react,48,Custom domain for workspace?,,,,,,no reply body generated - not scored
+plan_execute,48,Custom domain for workspace?,,,,,,no reply body generated - not scored
+self_correction,48,Custom domain for workspace?,,,,,,no reply body generated - not scored
+react,49,Do you have a Slack integration?,maria@retailcore.com,Slack Integration for Task Notifications,"Thank you for your inquiry. At this time, we do not have a native Slack integration for task notifications. However, you can set up a webhook to send task updates to your Slack channel. Please refer to our documentation on setting up webhooks for more details.
+
+If you need further assistance or have any other questions, feel free to reach out.",0,none,Asserts no native Slack integration exists and points to webhook documentation that is not established to exist.
+plan_execute,49,Do you have a Slack integration?,maria@retailcore.com,Slack Integration for Task Notifications,"Thank you for your inquiry. At this time, we do not have a native Slack integration for task notifications. However, you can set up a webhook to send task updates to your Slack channel. Here's a guide on how to set up a webhook: [Webhook Setup Guide](https://example.com/webhook-guide). If you encounter any issues during the setup, feel free to reach out for further assistance.
+
+If you have any other questions or need additional support, please let us know!",0,none,Same unsupported claim plus a placeholder link to example.com.
+self_correction,49,Do you have a Slack integration?,maria@retailcore.com,Slack Integration for Task Notifications,"Thank you for your inquiry about Slack integration for task notifications. Unfortunately, we do not have a native integration or webhook setup at this time. However, you can set up a custom solution using webhooks to send task notifications to Slack. If you need assistance with this, please feel free to reach out to our support team.
+
+For more information, you can refer to our internal documentation or contact us for further assistance.",0,none,"Says there is no webhook setup, then tells the customer to set up webhooks. Self-contradictory and unsupported."
+react,50,What's your SLA for support tickets?,nick@buildcycle.com,SLA for Support Tickets,"Dear Nick,
+
+Thank you for your inquiry regarding the Service Level Agreement (SLA) for support tickets.
+
+For our support tickets, the guaranteed response times are as follows:
+- URGENT: Within 1 hour
+- MEDIUM: Within 24 hours
+- LOW: Within 72 hours
+
+If you have any specific cases that require immediate attention, please feel free to escalate them to the URGENT category.
+
+Best regards,
+[Your Name]",0,none,Fabricates SLA response times (1h / 24h / 72h) for a vendor assessment. No SLA article exists in the wiki.
+plan_execute,50,What's your SLA for support tickets?,nick@buildcycle.com,SLA for Support Tickets,"Dear Nick,
+
+Thank you for your inquiry regarding the Service Level Agreement (SLA) for support tickets. We do not have a specific SLA document, but we can provide you with the general response times for different priorities based on our internal standards:
+
+- **URGENT**: We aim to respond within 15 minutes.
+- **MEDIUM**: We aim to respond within 2 hours.
+- **LOW**: We aim to respond within 24 hours.
+
+These response times are not guaranteed but are our best efforts to ensure timely assistance.
+
+If you have any further questions or need more detailed information, please feel free to reach out.
+
+Best regards,
+[Your Company Name]",0,none,"Fabricates a different set of SLA times (15min / 2h / 24h), contradicting the other strategies."
+self_correction,50,What's your SLA for support tickets?,nick@buildcycle.com,SLA for Support Tickets,"Hello Nick,
+
+Thank you for your inquiry regarding the Service Level Agreement (SLA) for support tickets. At our company, we have the following guaranteed response times for different priorities:
+
+- **URGENT**: Within 1 hour
+- **MEDIUM**: Within 24 hours
+- **LOW**: Within 72 hours
+
+These response times are based on our internal SLA and are designed to ensure that critical issues are addressed promptly.
+
+If you have any further questions or need assistance, please feel free to reach out.
+
+Best regards,
+[Your Name]",0,none,Fabricates SLA times and attributes them to an 'internal SLA' that is not in the wiki.
+react,51,Worst support experience ever,,,,,,no reply body generated - not scored
+plan_execute,51,Worst support experience ever,,,,,,no reply body generated - not scored
+self_correction,51,Worst support experience ever,,,,,,no reply body generated - not scored
+react,52,Billing error ignored for weeks,,,,,,no reply body generated - not scored
+plan_execute,52,Billing error ignored for weeks,,,,,,no reply body generated - not scored
+self_correction,52,Billing error ignored for weeks,,,,,,no reply body generated - not scored
+react,53,Lack of transparency on data breach,,,,,,no reply body generated - not scored
+plan_execute,53,Lack of transparency on data breach,,,,,,no reply body generated - not scored
+self_correction,53,Lack of transparency on data breach,,,,,,no reply body generated - not scored
+react,54,Sales team promised features that don't exist,,,,,,no reply body generated - not scored
+plan_execute,54,Sales team promised features that don't exist,,,,,,no reply body generated - not scored
+self_correction,54,Sales team promised features that don't exist,,,,,,no reply body generated - not scored
+react,55,Account deactivated without notice,tara@hrcloud.de,Re: Account deactivated without notice,"Dear Tara,
+
+Thank you for bringing this to our attention. We are currently looking into the issue and will provide you with an update shortly.
+
+Best regards,
+[Your Company Name]",1,none,"Safe holding reply with no fabricated claims. Minor edit: for an URGENT complaint about 3 lost days of work, wiki-009 requires acknowledging the frustration before next steps."
+plan_execute,55,Account deactivated without notice,,,,,,no reply body generated - not scored
+self_correction,55,Account deactivated without notice,tara@hrcloud.de,Re: Account deactivated without notice,"Thank you for bringing this to our attention. We are currently looking into the issue and will update you as soon as possible.
+
+Best regards,
+[Your Company Name]",1,none,"No false claims, but extremely thin. Minor edit: no greeting, no apology, and no acknowledgement of the lost work."
+react,56,Support agent rude and unhelpful,,,,,,no reply body generated - not scored
+plan_execute,56,Support agent rude and unhelpful,,,,,,no reply body generated - not scored
+self_correction,56,Support agent rude and unhelpful,,,,,,no reply body generated - not scored
+react,57,Repeated downtime – violating SLA,,,,,,no reply body generated - not scored
+plan_execute,57,Repeated downtime – violating SLA,,,,,,no reply body generated - not scored
+self_correction,57,Repeated downtime – violating SLA,,,,,,no reply body generated - not scored
+react,58,Hidden fees discovered,,,,,,no reply body generated - not scored
+plan_execute,58,Hidden fees discovered,,,,,,no reply body generated - not scored
+self_correction,58,Hidden fees discovered,,,,,,no reply body generated - not scored
+react,59,Lost our project data,,,,,,no reply body generated - not scored
+plan_execute,59,Lost our project data,,,,,,no reply body generated - not scored
+self_correction,59,Lost our project data,,,,,,no reply body generated - not scored
+react,60,Automatic renewal ignored cancellation,,,,,,no reply body generated - not scored
+plan_execute,60,Automatic renewal ignored cancellation,,,,,,no reply body generated - not scored
+self_correction,60,Automatic renewal ignored cancellation,,,,,,no reply body generated - not scored
+sequential,1,Order #TF-2341 not delivered,clark.ent@buildco.com,Re: Order #TF-2341 not delivered,"Dear Clark,
+
+Thank you for reaching out. I understand the urgency of your situation. Unfortunately, we haven't received any tracking information for your order yet. To expedite this, could you please check your spam folder for the tracking email we sent? If it's not there, we will resend it immediately.
+
+If you do not find the tracking information within the next 24 hours, please let us know so we can escalate this and provide a $10 credit or arrange for a free reshipment.
+
+Best regards,
+[Your Name]",0,wiki-001/002,Claims 'we haven't received any tracking information' (unsupported) and offers reshipment/$10 credit for software licenses. Invented 24-hour escalation window.
+sequential,2,Missing license keys after payment,sarah@logistyx.de,Re: Missing license keys after payment,"Thank you for your email regarding the missing license keys after payment for order #TF-2890. We have checked our records and found that the payment was processed successfully. However, we are experiencing some delays in issuing the license keys, which is affecting 50 users. We are currently investigating the issue and will provide an update as soon as possible.
+
+In the meantime, please ensure that you have entered the correct order number and that there are no issues with your payment method. If the problem persists, please do not hesitate to contact us.
+
+If you have any further questions or concerns, please feel free to reach out to us.
+
+Best regards,
+[Your Company Name]",0,none,Hallucinates a records lookup ('payment was processed successfully') and an internal cause ('experiencing some delays in issuing the license keys').
+sequential,3,Order placed but no confirmation,mike.ross@legalzoom.io,Re: Order placed but no confirmation,"Dear Mike,
+
+Thank you for reaching out to us. We understand the urgency of your situation and are working to resolve this issue as quickly as possible.
+
+Your order for the Enterprise plan upgrade (Order #TF-3012) has not been confirmed yet. We are investigating the matter and will provide you with an update shortly.
+
+In the meantime, please check your account portal to ensure that the payment was successfully processed. If you do not see the upgrade reflected, please let us know so we can assist further.
+
+If you have any further questions or need immediate assistance, please do not hesitate to contact us.
+
+Best regards,
+[Your Company Name]",1,none,"Acknowledges urgency and reflects the customer's own report back rather than inventing a cause. Minor edit: no timeline, and suggesting the customer verify payment is a slight deflection."
+sequential,4,License activation delayed – order #TF-2765,olivia@creativecloud.com,Re: License activation delayed – order #TF-2765,"Dear Olivia,
+
+Thank you for contacting us. We understand the urgency of this issue and are working on resolving it immediately.
+
+We have reviewed the order #TF-2765 and are investigating the delay in license activation. Please allow us some time to address this, as we are currently experiencing a high volume of requests.
+
+In the meantime, if you have not already, please check your spam folder for the tracking email that should have been sent within 24 hours of your order. If you do not find it there, please let us know so we can resend it.
+
+We will keep you updated on the progress and ensure that your new hires can start using the additional user slots as soon as possible.
+
+Best regards,
+[Your Company]",0,wiki-002 (wrong),Fabricates 'high volume of requests' and applies the shipment-tracking-email policy to a license activation delay.
+sequential,5,Wrong product delivered on order,peter@buildsmart.de,Re: Wrong product delivered on order,"Dear Peter,
+
+Thank you for bringing this to our attention. We apologize for the incorrect product being delivered.
+
+As per our company policy, we will be issuing a free reshipment of the 'Pro Suite' licenses. Please allow 3-5 business days for the new shipment to be processed and dispatched.
+
+If you have not received the tracking information for your order, please check your spam folder first. If the issue persists, we can resend the tracking information from your order page.
+
+We appreciate your patience and cooperation.
+
+Best regards,
+[Your Name]",0,wiki-001 (wrong),Promises a 'free reshipment' of software licenses and invents a 3-5 business day dispatch window (wiki says 5-7 for delivery).
+sequential,6,Invoice not received after order,linda@fintech-solutions.com,Re: Invoice not received after order,"Thank you for your email regarding the invoice for your recent order #TF-3100. We apologize for any inconvenience this may have caused. Could you please check your spam folder for the invoice email? If you still do not find it there, we can resend it for you. If you need further assistance, please let us know.
+
+Best regards,
+[Your Company Name]",2,wiki-002 (adapted),"Applies the spam-folder guidance sensibly to a missing invoice email and offers to resend. No invented policy or timeline, correct next step for the customer. Sendable."
+sequential,7,Order status shows 'pending' for 2 days,,,,,,no reply body generated - not scored
+sequential,8,Quantity mismatch on delivery,julia@medrecord.de,Re: Quantity mismatch on delivery,"Thank you for bringing this to our attention, Julia.
+
+We apologize for the discrepancy in your order. We will ensure the missing 25 user licenses are added to your account as soon as possible.
+
+If you have any further questions or concerns, please feel free to reach out.
+
+Best regards,
+[Your Company Name]",2,none,"Acknowledges the shortfall, names the correct quantity and order number, and commits to the obvious remedy. No policy needed for this case and nothing fabricated. Sendable."
+sequential,9,Order confirmation but no access,tom@nextgen.tech,Re: Order confirmation but no access,"Dear Tom,
+
+Thank you for your email regarding your order #TF-3221. We understand the urgency of your situation and are here to assist you.
+
+It seems that there might be an issue with your subscription. Please check if you have any pending or duplicate payments that might be causing this. If you find any, please cancel them and we will ensure that your subscription is active.
+
+If you do not find any issues with your payments, please create a ticket with the support team so we can investigate further. We will make sure to resolve this issue as soon as possible.
+
+Best regards,
+[Your Name]",0,wiki-005 (wrong),Applies the duplicate-charge policy to an access/provisioning failure and tells the customer to cancel payments. Also asks the customer to create the ticket.
+sequential,10,Can't find order history,nina@scaleup.de,Re: Can't find order history,"Dear Nina,
+
+Thank you for reaching out. We understand the importance of having access to your order history and invoices. Unfortunately, our system does not currently support direct re-downloading of invoices. However, we can assist you in locating your invoice.
+
+Please provide us with your order number (TF-1892) and we will send you the invoice via email.
+
+If you have any further questions or concerns, please feel free to reach out.
+
+Best regards,
+[Your Name]",0,none,"Invents the same non-existent system limitation, then immediately contradicts it by offering to email the invoice."
+sequential,11,API returns 500 error constantly,alex@datadriven.com,Urgent: Investigation into /tasks endpoint 500 errors,"Dear Alex,
+
+We understand the urgency of the issue with the /tasks endpoint returning 500 Internal Server Errors. Our technical team is currently investigating the problem and will provide an update as soon as possible.
+
+In the meantime, please ensure that your application is not sending any malformed requests to the API, as this could be causing the errors. If the issue persists, we recommend clearing the cache or reinstalling the application.
+
+We apologize for any inconvenience this may cause and will keep you updated on the progress.
+
+Best regards,
+[Your Company]",0,wiki-003 (wrong),Recommends 'clearing the cache or reinstalling the application' — the Android app workaround — for a production REST API 500 error. Also deflects blame to malformed requests.
+sequential,12,Web app extremely slow after update,ben@codebase.de,Re: Web app extremely slow after update,"Dear Ben,
+
+Thank you for bringing this to our attention. We are experiencing issues with our web application performance and are looking into it immediately.
+
+In the meantime, please try clearing your browser cache and cookies, as well as checking if you are using the latest version of your browser. If the issue persists, we recommend reaching out to our technical support team for further assistance.
+
+We apologize for the inconvenience and appreciate your patience as we work to resolve this issue.
+
+Best regards,
+[Your Company Name]",1,none,"Acknowledges a reported problem the customer has already evidenced, and browser cache advice is a harmless standard first step. Minor edit: pointing the customer to 'our technical support team' from within a support reply."
+sequential,13,SSO login broken for all users,clara@analytix.com,Re: SSO login broken for all users,"Dear Clara,
+
+Thank you for bringing this to our attention. We are experiencing a widespread issue with SSO login via SAML, and our technical team is already working on a fix.
+
+In the meantime, please try clearing the cache or reinstalling the application. If the problem persists, please log a ticket as URGENT.
+
+Best regards,
+[Your Company Name]",0,wiki-003 (wrong),"Fabricates a known widespread SAML outage and an in-progress fix, then offers the mobile-app cache/reinstall workaround for SSO. Also leaks the internal instruction 'log a ticket as URGENT' to the customer."
+sequential,14,Mobile app crashes on Android,david@finwave.de,Re: Mobile app crashes on Android,"Dear David,
+
+Thank you for bringing this to our attention. We've found that this issue is related to a known problem with app version 3.2, which is currently crashing on some Android devices when opening project boards.
+
+As a workaround, you can try clearing the app cache or reinstalling the app. We are working on a fix for version 3.3, which should resolve this issue.
+
+If the problem persists after trying these steps, please let us know and we will escalate this to our support team as an urgent issue.
+
+Best regards,
+[Your Company Name]",2,wiki-003,"Best retrieval in the set: correct v3.2 Android crash article, correct workaround (clear cache / reinstall), correct v3.3 fix, and an appropriate escalation offer if it persists. Sendable."
+sequential,15,Reports not exporting to PDF,emma@greenfield.energy,Re: Reports not exporting to PDF,"Dear Emma,
+
+Thank you for reaching out to us. We understand the urgency of your request and are here to assist you.
+
+After reviewing the information you provided, it seems that the issue you are experiencing with the 'Export to PDF' button is not related to the articles we found in our wiki. However, we are still investigating the exact cause of the problem.
+
+In the meantime, you might want to try clearing your browser cache or using a different browser to see if that resolves the issue. If the problem persists, please let us know so we can escalate it to our technical support team.
+
+We appreciate your patience and will keep you updated on the status of this issue.
+
+Best regards,
+[Your Name]",0,none,Leaks internal retrieval machinery to the customer: 'not related to the articles we found in our wiki'. Requires a substantial rewrite.
+sequential,16,Webhook delivery failing,frank@logi.solutions,Re: Webhook delivery failing,"Thank you for reaching out. Our team is investigating the issue with your webhook endpoint. We will update you as soon as we have more information.
+
+In the meantime, please check the following:
+- Ensure that your webhook URL is correctly configured and accessible.
+- Verify that your webhook is not being blocked by any firewalls or security settings.
+- Check if there are any network issues that might be affecting the delivery of events.
+
+If you continue to experience issues, please let us know so we can assist further.",1,none,Generic but accurate troubleshooting checklist with no fabricated policy. Minor edit: no greeting or sign-off.
+sequential,17,Task assignment notifications not sent,grace@hrcloud.de,Re: Task assignment notifications not sent,"Thank you for bringing this to our attention. We are currently investigating why task assignment notifications are not being sent out. In the meantime, please check if the notifications are being blocked by your spam filters. If the issue persists, we will update you as soon as possible.",1,wiki-002 (adapted),Spam-filter suggestion is a fair extension of the email-deliverability guidance; no false claims. Minor edit: missing greeting and sign-off.
+sequential,18,Search function returns incomplete results,henry@buildcycle.com,Re: Search function returns incomplete results,"Dear Henry,
+
+Thank you for bringing this to our attention. Our technical team is aware that the search function may not be returning all expected results, and they are currently investigating the issue. They will work on rebuilding the index to ensure a more comprehensive search experience.
+
+In the meantime, if you have any specific issues or need further assistance, please feel free to reach out.
+
+Best regards,
+[Your Company Name]",1,none,"Reasonable holding reply on a LOW priority issue with the right remedy named. Minor edit: states the technical team is already investigating, which overstates what is confirmed."
+sequential,19,Two-factor authentication loop,,,,,,no reply body generated - not scored
+sequential,20,Error when uploading large CSV,,,,,,no reply body generated - not scored
+sequential,21,Overcharged on annual subscription,karen@retailcore.com,Re: Overcharged on annual subscription,"Dear Karen,
+
+Thank you for bringing this to our attention. We have reviewed your invoice and found an overcharge of €2,400. We will process a refund for this amount within 5-7 business days.
+
+If you have any further questions or concerns, please do not hesitate to contact us.
+
+Best regards,
+[Your Company Name]",0,none,"Hallucinates a verification result: 'We have reviewed your invoice and found an overcharge of EUR 2,400.'"
+sequential,22,Credit card charged twice for same month,leo@edtech.de,Re: Credit card charged twice for same month,"Dear Leo,
+
+Thank you for bringing this to our attention. We understand the inconvenience and will ensure that the duplicate charge is reversed within 5-7 business days.
+
+If the issue persists after this period, please do not hesitate to contact us.
+
+Best regards,
+[Your Company Name]",1,wiki-005,Correct timeline and escalation cue. Minor edit: promises reversal unconditionally and drops the 'confirmed duplicate' qualifier.
+sequential,23,Tax ID missing on invoices,mia@healthdata.com,Re: Tax ID missing on invoices,"Dear Mia,
+
+Thank you for bringing this to our attention. We apologize for the inconvenience caused by the missing VAT number on your invoices.
+
+We will re-issue past invoices with the correct tax ID for your records. This process may take up to 5 business days to complete.
+
+If you have any further questions or concerns, please do not hesitate to contact us.
+
+Best regards,
+[Your Company Name]",0,none,Commits to re-issuing past invoices and invents a 5-business-day turnaround. No wiki article covers tax IDs or invoice reissue.
+sequential,24,Payment not reflected on account,noah@finlegal.de,Re: Payment not reflected on account,"Thank you for your email.
+
+We understand that you made a bank transfer of €4,800 on May 28, but your account still shows 'payment overdue'.
+
+We have reviewed the information provided and found that your payment is likely still being processed. If the payment has not been recorded within a reasonable timeframe, please log a ticket with us so we can investigate further.
+
+In the meantime, if you have any other questions or concerns, feel free to reach out.
+
+Best regards,
+[Your Company Name]",1,none,"Appropriately hedged ('likely still being processed'), no fabricated policy. Minor edit: asks the customer to log a ticket, which the agent should do."
+sequential,25,Price increase without notice,olivia@smartcity.io,Re: Price increase without notice,"Thank you for your email regarding the price increase on your May invoice. Our records show that no discount codes were applied retroactively, and no changes to our standard pricing were communicated through email. If you believe there has been an error, please log a ticket and we will investigate further. We appreciate your understanding.",0,wiki-006 (wrong),Claims records were checked ('no discount codes were applied retroactively') and asserts no pricing change was communicated — both unsupported.
+sequential,26,Cancellation request – billing continues,paul@greenenergy.de,Re: Cancellation request – billing continues,"Thank you for your email. We have reviewed your cancellation request and the duplicate invoice you received. According to our policies, refunds for confirmed duplicates are automatic within 5-7 business days once a ticket is logged. Please allow up to 7 days for the refund to be processed.
+
+If you have any further questions or concerns, please feel free to reach out.
+
+Best regards,
+[Your Company Name]",0,wiki-005 (wrong),Treats a post-cancellation invoice as a 'duplicate charge' and never addresses the cancellation request itself.
+sequential,27,Cannot update payment method,quincy@datahub.com,Issue with Updating Payment Method,"Dear Quincy,
+
+Thank you for reaching out. We understand the urgency of this issue and are here to assist you.
+
+It seems you are having trouble updating your payment method. Please check if the new card details are entered correctly and try again. If the issue persists, please log a ticket with our support team so we can investigate further.
+
+If you have any other questions or need immediate assistance, please don't hesitate to contact us.
+
+Best regards,
+[Your Company Name]",1,none,"No fabricated policy; sensible first step on a failed card update. Minor edit: instructs the customer to log the ticket rather than logging it, on a time-sensitive auto-billing issue."
+sequential,28,Invoice currency wrong,rose@logi.solutions,Re: Invoice currency wrong,"Dear Rose,
+
+Thank you for bringing this to our attention. We apologize for the inconvenience.
+
+Invoice #INV-512 has been updated to the correct currency, EUR. Please check your account for the updated invoice.
+
+If you have any further issues or concerns, please feel free to reach out.
+
+Best regards,
+[Your Company Name]",0,none,States as fact that 'Invoice #INV-512 has been updated to the correct currency' — an action that was never performed.
+sequential,29,Early termination fee not agreed,sam@archviz.de,Re: Early termination fee not agreed,"Thank you for your email regarding the early termination fee on your contract. Our contract does not mention this fee, and we will remove it for you. We apologize for any inconvenience this may have caused.
+
+Best regards,
+[Your Company Name]",0,none,Claims to have read the customer's contract ('our contract does not mention this fee') and commits to removing the fee.
+sequential,30,Discount not applied correctly,tina@biotech.com,Re: Discount not applied correctly,"Thank you for contacting us. We understand the importance of applying your discount code correctly. According to our policies, discount codes only apply if entered at checkout and cannot be applied retroactively by support. If a valid code visibly failed to apply (invoice shows full price despite a valid code), please log a ticket and we will adjust the invoice and refund the difference.",1,wiki-006,Accurately grounded in the discount-code article. Minor edit: reads as a policy quotation and pushes the ticket-logging step onto the customer.
+sequential,31,Request refund for unused licenses,ursula@edtech.de,Re: Request refund for unused licenses,"Hello Ursula,
+
+Thank you for reaching out. According to our policy, refunds can only be issued for unused licenses within 30 days of delivery. However, since this is a standard request, you can generate a prepaid return label from your order page to initiate the refund process.
+
+If you need further assistance, please let us know.
+
+Best regards,
+[Your Company Name]",0,wiki-007 (wrong),Applies the 30-day physical-goods return flow and a 'prepaid return label' to a pro-rated software licence refund. Wiki-012 is the relevant article and says the opposite.
+sequential,32,Refund for duplicate payment,victor@fintech-solutions.com,Re: Refund for duplicate payment,"Dear Victor,
+
+Thank you for reaching out. We understand that you made an accidental duplicate payment for invoice INV-789. We will process the refund of €2,300 as soon as possible.
+
+Best regards,
+[Your Company Name]",1,none,"No fabricated facts and the right outcome. Minor edit: wiki-005 covers this exact case, so the reply should cite the 5-7 day automatic window instead of an open-ended 'as soon as possible'."
+sequential,33,Return of licenses – we switched to competitor,wendy@buildco.com,Re: Return of licenses – we switched to competitor,"Thank you for reaching out. According to our policy, we are unable to provide a refund for the remaining period of your annual plan as it does not fall within the 30-day return window. However, we understand your situation and will escalate this to our management team for further review. Please stay tuned for any updates.
+
+Best regards,
+TechFlow Support",0,wiki-007 (wrong),"Applies the 30-day return window to a contractual mid-term refund under section 5.2, and invents a management review."
+sequential,34,Refund for unusable API feature,xavier@quantum.de,Re: Refund for unusable API feature,"Thank you for reaching out. We understand that the API webhooks have not worked as expected, and we are sorry for the inconvenience. According to our policy, items can be returned within 30 days of delivery for a full refund or exchange if unused. You can generate a prepaid return label from your order page to initiate the refund process. If you need further assistance, please let us know.
+
+Best regards,
+[Your Company Name]",0,wiki-007 (wrong),Same misapplication: a physical returns flow with a prepaid shipping label for a non-functional software feature.
+sequential,35,Wrong subscription tier – refund difference,,,,,,no reply body generated - not scored
+sequential,36,Refund for non-functional add-on,zack@legalzoom.io,Re: Refund for non-functional add-on,"Dear Zack,
+
+Thank you for contacting us. According to our Returns & Exchanges Policy, items can be returned within 30 days of delivery for a full refund or exchange if unused. Since your purchase was made more than 30 days ago, we are unable to process a refund at this time.
+
+If you believe the add-on is non-functional, please let us know and we will investigate further. However, please note that we will need to log a ticket to address this issue as it is outside the standard return policy.
+
+Best regards,
+[Your Company Name]",0,wiki-007 (wrong),Asserts 'your purchase was made more than 30 days ago' — the email never states a purchase date. Denies the refund on a fabricated fact.
+sequential,37,Cancel and refund within 14 days,anna@hrcloud.de,Refund Process for EU Right of Withdrawal,"Dear Anna,
+
+Thank you for contacting us. According to our policy, you can request a refund within 14 days of signing up, which aligns with the EU right of withdrawal.
+
+To proceed with the refund, please follow these steps:
+1. Log in to your account and navigate to the order page.
+2. Generate a prepaid return label to return the product.
+3. Once the product is returned, we will process the refund within 5 business days.
+
+If you have any further questions or need assistance, please don't hesitate to reach out.
+
+Best regards,
+[Your Company Name]",0,wiki-007/008 (wrong),"Invents a 14-day policy, applies a prepaid return label to a subscription, and quotes a 5-business-day refund window (wiki says 5-10)."
+sequential,38,Partial refund for outage period,brian@datadriven.com,Re: Partial refund for outage period,"Thank you for bringing this to our attention. Our service had 48 hours of downtime last month, and we understand your concern. However, our policy does not allow partial refunds for service outages. We recommend you contact our support team to report the issue and we will ensure it is addressed. If you have any further questions, please don't hesitate to reach out.",0,none,"Same invented no-partial-refund policy, and directs the customer to 'contact our support team' from within a support reply."
+sequential,39,Refund request – double charge for add-on,carla@logistyx.de,Re: Refund request – double charge for add-on,"Thank you for your email regarding the double charge for the 'Audit Log' add-on in March and April.
+
+We understand the inconvenience and are looking into this issue. According to our policy, customers can generate a prepaid return label from their order page for a full refund or exchange if the item was unused within 30 days of delivery. Please follow the steps to initiate the refund process.
+
+If you need further assistance, please let us know.
+
+Best regards,
+Logistyx Support",0,wiki-007 (wrong),Answers a duplicate billing charge with the returns policy and a prepaid return label. Wrong article entirely.
+sequential,40,License return – purchased by mistake,daniel@creativecloud.com,Re: License return – purchased by mistake,"Thank you for reaching out. Our policy does not allow for retroactive refunds on orders that have already been placed. However, since your order was made just 1 hour ago, we can attempt to cancel it for you. Please allow us some time to process this request.
+
+If the cancellation is successful, a refund will be issued. If not, we will need to follow up with a formal refund request through a ticket. Please note that we are unable to process returns or exchanges for digital products like user licenses.
+
+If you have any further questions or need assistance, please do not hesitate to reach out.",0,none,"Invents a policy against retroactive refunds, then invents a second one — 'we are unable to process returns for digital products' — which contradicts both the wiki and its own offer to cancel."
+sequential,41,How to add team members?,emily@scaleup.de,How to Add Team Members to the Dashboard,"Hello Emily,
+
+Thank you for your email. The 'Users' section is not directly accessible from the main dashboard. Instead, you can add your team members through the 'Settings' menu, then select 'Users'.
+
+If you have any further questions or need assistance, please don't hesitate to reach out.
+
+Best regards,
+[Your Company Name]",0,none,"Fabricates a different UI path ('Settings' then 'Users'), directly contradicting the customer's report and the other strategies."
+sequential,42,Do you offer on-premises deployment?,fred@greenfield.energy,TechFlow On-Premises Deployment,"Thank you for your inquiry. TechFlow does not currently offer an on-premises version of our software. We understand the importance of data residency and are committed to providing solutions that meet your needs. If you have any further questions or require additional assistance, please feel free to reach out.",0,none,"Same unsupported assertion about on-premises availability, stated with unwarranted confidence to a data-residency question."
+sequential,43,Supported file types for attachments,gina@healthdata.com,Re: Supported file types for attachments,"Hello Gina,
+
+According to our documentation, the supported file types for attachments are limited to common formats such as .pdf, .doc, .docx, .txt, .jpg, .png, and .xlsx. Unfortunately, we do not support .psd or .ai files at this time.
+
+If you have any further questions or need additional assistance, please feel free to reach out.
+
+Best regards,
+[Your Company Name]",0,none,"Invents a file type list that differs from the other strategies (.xlsx instead of .gif), attributed to 'our documentation'."
+sequential,44,Is there a free trial for Enterprise?,hank@mobility.ai,Re: Is there a free trial for Enterprise?,"Thank you for your inquiry. At this time, we do not offer a free trial for our Enterprise features. However, we do provide a 14-day free trial for our Professional plan, which includes audit logs and SSO. You can sign up for the trial [here](https://www.mobility.ai/signup). If you have any further questions or need assistance, please don't hesitate to reach out.",0,none,"Fabricates a 14-day Professional plan trial and a sign-up link to mobility.ai, an unrelated domain."
+sequential,45,GDPR compliance details,iris@finwave.de,Re: GDPR compliance details,"Dear Iris,
+
+Thank you for your request. Unfortunately, we do not have a specific Data Processing Agreement or subprocessor list to share at this time. Our standard privacy practices and policies are available on our website under the Privacy Policy section. If you need more detailed information, please let us know and we will do our best to assist you.
+
+Best regards,
+[Your Name]",0,none,States the company has no DPA or subprocessor list 'at this time'. Unsupported and damaging on a compliance question.
+sequential,46,How to export all projects?,james@archviz.de,Re: How to export all projects?,"We currently do not have a bulk export feature for projects, tasks, and comments. However, you can export individual projects or tasks through the application interface. For a complete export, you might need to manually download each project and its associated data. If you need assistance with this process, please let us know and we can guide you through it. Thank you.",0,none,Asserts no bulk export feature exists and that individual export is available. Neither claim is supported by the wiki.
+sequential,47,API rate limits?,kelly@codebase.de,Re: API rate limits?,"Hello Kelly,
+
+Thank you for your inquiry about API rate limits. Unfortunately, our company's wiki does not have a specific article on this topic. However, I can provide you with the general guidance that we follow for API rate limits.
+
+Our REST API has the following rate limits:
+- 100 requests per minute per API key
+- 10,000 requests per day per API key
+
+Please ensure that your integration plan adheres to these limits to avoid any issues.
+
+If you need further assistance or have any other questions, feel free to reach out.
+
+Best regards,
+[Your Name]",0,none,"Leaks the retrieval failure to the customer ('our company's wiki does not have a specific article on this topic') and then invents concrete rate limits (100/min, 10,000/day) anyway."
+sequential,48,Custom domain for workspace?,,,,,,no reply body generated - not scored
+sequential,49,Do you have a Slack integration?,maria@retailcore.com,Slack Integration for Task Notifications,"At this time, we do not have a native Slack integration for task notifications. However, you can set up a webhook to send task updates to a Slack channel. Please refer to our documentation on setting up webhooks for more details.
+
+If you need further assistance, feel free to reach out.",0,none,Same unsupported product claim and reference to non-existent webhook documentation.
+sequential,50,What's your SLA for support tickets?,nick@buildcycle.com,Guaranteed Response Times for Support Tickets,"Hello Nick,
+
+Thank you for your inquiry about our SLA for support tickets. Our guaranteed response times for different priorities are as follows:
+
+- URGENT: Within 1 hour
+- MEDIUM: Within 24 hours
+- LOW: Within 48 hours
+
+We hope this information is helpful for your internal vendor assessment.
+
+Best regards,
+[Your Company Name]",0,none,Fabricates a third variant (1h / 24h / 48h) for the same question.
+sequential,51,Worst support experience ever,olga@datadriven.com,Re: Worst support experience ever,"Dear Olga,
+
+Thank you for bringing this to our attention. We deeply regret the inconvenience and frustration you've experienced with our support team. We understand that our service is a paid one, and we value your business.
+
+We acknowledge the urgency of your situation and assure you that we will look into ticket #12345 immediately. Our support team will be in touch with you shortly to resolve the issue.
+
+If you have any further concerns or questions, please do not hesitate to reach out.
+
+Best regards,
+[Your Company Name]",2,wiki-009,"Follows the escalation article correctly: acknowledges frustration before next steps, references the specific ticket, commits to immediate review. Appropriate for an URGENT cancellation threat and sendable as-is."
+sequential,52,Billing error ignored for weeks,paul@buildco.com,Re: Billing error ignored for weeks,"Dear Paul,
+
+Thank you for bringing this to our attention. We understand your frustration with the delayed response to your initial report of a double charge.
+
+According to our policies, duplicate subscription charges usually result from a double-submitted payment form. Refunds for confirmed duplicates are automatic within 5-7 business days once a ticket is logged. In your case, it seems the issue has not been resolved within the expected timeframe.
+
+We will ensure that this matter is escalated to our manager immediately and will keep you updated on the progress.
+
+Best regards,
+[Your Name]",1,"wiki-005, wiki-009","Acknowledges frustration first and cites the duplicate-charge policy correctly, noting the 7-day threshold was passed. Minor edit: never addresses the late fees the customer is angriest about."
+sequential,53,Lack of transparency on data breach,,,,,,no reply body generated - not scored
+sequential,54,Sales team promised features that don't exist,steve@fintech-solutions.com,Re: Sales team promised features that don't exist,"Dear Steve,
+
+Thank you for bringing this to our attention. We understand your frustration and apologize for any confusion regarding the automatic time tracking feature.
+
+Unfortunately, this feature is not currently available, and we will not be able to provide a refund based on the information you have provided. However, we will ensure that our sales team is more transparent about the features available.
+
+If you have any further concerns or questions, please do not hesitate to reach out.
+
+Best regards,
+[Your Company Name]",0,none,"Asserts the feature does not exist and denies a refund outright, both without grounding, on an URGENT false-advertising complaint. Fails the wiki-009 requirement to acknowledge frustration first."
+sequential,55,Account deactivated without notice,tara@hrcloud.de,Re: Account deactivated without notice,"Dear Tara,
+
+Thank you for bringing this to our attention. We understand the inconvenience caused by the account deactivation.
+
+Upon reviewing your case, it appears that the account was deactivated due to non-payment, despite the bank statements provided. We apologize for any confusion and would like to clarify that our system automatically deactivates accounts after a certain period without payment to ensure the security and integrity of our service.
+
+If you have any further questions or need assistance, please feel free to reach out to us.
+
+Best regards,
+[Your Company Name]",0,none,Fabricates a policy ('our system automatically deactivates accounts after a certain period without payment') and dismisses the bank statements the customer provided.
+sequential,56,Support agent rude and unhelpful,ursa@healthdata.com,Re: Support agent rude and unhelpful,"Dear Ursa,
+
+Thank you for bringing this to our attention. We sincerely apologize for the frustration you experienced with Agent John D. We understand that our support team is here to assist you, and any interaction that did not meet your expectations is unacceptable.
+
+We would like to assure you that we take your concerns very seriously and are taking immediate action to address this. Our support team will be undergoing training to ensure they provide more helpful and empathetic responses.
+
+We are also escalating this matter to our CEO for further review. Please rest assured that we are committed to providing the best possible service to all our customers.
+
+Best regards,
+[Your Company Name]",1,wiki-009,Correctly acknowledges frustration before next steps. Minor edit: commits to CEO escalation and to putting the support team through training — neither is supportable.
+sequential,57,Repeated downtime – violating SLA,,,,,,no reply body generated - not scored
+sequential,58,Hidden fees discovered,willa@mobility.ai,Re: Hidden fees discovered,"Thank you for bringing this to our attention. We understand your concern about the unexpected 'API overage' charge. According to our billing policies, charges are typically transparent and documented. However, we will investigate this matter further and ensure that all charges are clearly communicated in the future.
+
+In the meantime, please let us know if you have any questions or need further assistance.
+
+Best regards,
+[Your Company Name]",0,none,Invents a billing transparency policy ('charges are typically transparent and documented') and never addresses the request to remove the EUR 500 charge.
+sequential,59,Lost our project data,,,,,,no reply body generated - not scored
+sequential,60,Automatic renewal ignored cancellation,yasmine@scaleup.de,Re: Automatic renewal ignored cancellation,"Dear Yasmine,
+
+Thank you for bringing this to our attention. We understand your concern and apologize for any inconvenience caused.
+
+According to our policies, duplicate subscription charges are usually a result of a double-submitted payment form. We will process a refund for the duplicate charge within 5-7 business days once a ticket is logged. Please follow up if the issue is unresolved after 7 days.
+
+If you have any further questions or concerns, please do not hesitate to reach out.
+
+Best regards,
+[Your Company Name]",0,wiki-005 (wrong),Frames an ignored cancellation as a duplicate charge from a double-submitted form. Wrong article; wiki-012 is the relevant one and states cancellation does not refund the current period.

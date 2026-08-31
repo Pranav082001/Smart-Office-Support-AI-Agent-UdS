@@ -1,0 +1,22 @@
+# agent runtime (langchain tool-calling loop, both LLM backends)
+langchain-core==1.4.9
+langchain-mcp-adapters==0.3.0
+langchain-groq==1.1.3
+pydantic==2.12.5
+
+# local model backend (LLM_PROVIDER=local)
+llama-cpp-python==0.3.35
+huggingface-hub==0.34.4
+transformers==4.55.4
+
+# MCP servers
+fastmcp==3.4.6
+mcp==1.27.0
+notion-client==3.1.0
+nltk==3.10.0
+google-api-python-client==2.198.0
+google-auth==2.53.0
+google-auth-oauthlib==1.4.0
+
+# evaluation harness
+pandas==2.2.3
