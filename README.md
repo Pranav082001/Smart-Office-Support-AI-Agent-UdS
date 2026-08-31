@@ -7,28 +7,6 @@ human approval before anything customer-facing actually goes out. Built with Lan
 and four [MCP](https://modelcontextprotocol.io) servers (Gmail, Google Calendar, Notion,
 Wiki).
 
-## Repo layout
-
-```
-agent/
-  support_agent.py               dynamic (judgment-driven) agent -- the main entry point
-  old_sequential_support_agent.py fixed-order agent, same tools, prompt-enforced sequence
-  local_llm.py                   local Qwen2.5-7B-Instruct backend (llama-cpp-python)
-  api.py                         optional local fallback for API keys (see below) -- gitignored
-mcp_servers/
-  email_server.py                Gmail MCP server (fetch_unread_emails, send_email)
-  calendar_server.py             Google Calendar MCP server (create_followup_reminder)
-  notion_mcp_server.py           Notion MCP server (create/list/update/delete ticket)
-  wiki_mcp_server.py             company wiki MCP server (search_wiki, lexical retrieval)
-  lexical.py                     stemming/word-overlap helpers used for ticket dedup
-evaluation/
-  agent_evaluation.py            runs a fixed email set through the agent, checks accuracy
-  strategy_comparison.py         compares sequential / react / self_correction / plan_execute
-  eval_dataset.py                6 built-in synthetic emails
-data/test.example.json           60 synthetic emails (Gemini-generated), 6 categories
-Final/main-1.tex                 project report (LaTeX)
-```
-
 ## Setup
 
 **1. Install dependencies** (Python 3.10+):
@@ -37,22 +15,36 @@ Final/main-1.tex                 project report (LaTeX)
 pip install -r requirements.txt
 ```
 
-If you plan to use the local model (`LLM_PROVIDER=local`), `llama-cpp-python` needs a
-Metal-enabled build on macOS:
-
-```bash
-CMAKE_ARGS="-DGGML_METAL=on" pip install --force-reinstall --no-cache-dir llama-cpp-python
-```
-
-**2. Set your API keys and credentials** (see the two sections below).
+**2. Set your Groq API key and credentials** (see the two sections below).
 
 **3. Run it:**
 
 ```bash
-# from the agent/ directory
-python3 support_agent.py                    # real inbox sweep (default: Groq)
-python3 old_sequential_support_agent.py      # fixed-order variant
+cd agent
+python3 support_agent.py
+```
 
+### What `support_agent.py` does
+
+- **No command-line arguments** — everything is controlled through environment
+  variables (see [LLM provider](#llm-provider) and [Where API keys go](#where-api-keys-go)
+  below), so `python3 support_agent.py` on its own is the whole command.
+- **Default model: Groq**, `openai/gpt-oss-120b` (`LLM_PROVIDER` defaults to `groq`).
+  Set `LLM_PROVIDER=local` first to use the offline Qwen2.5-7B model instead.
+- **It only handles the single most recent unread email per run** — it calls
+  `fetch_unread_emails(limit=1)`, not a full inbox sweep. That email is marked as
+  read as soon as it's fetched, so re-running the script moves on to the next unread
+  one each time (run it again, or put it in a loop/cron, to work through more).
+- For that one email, the agent then decides for itself (based on the system
+  prompt) whether to classify it, search the wiki, reply, log a Notion ticket,
+  and/or schedule a calendar follow-up — it's judgment-driven, not a fixed sequence.
+  For the fixed-sequence version instead, run `python3 old_sequential_support_agent.py`
+  (same file/args behavior, just a stricter step-by-step prompt).
+- **It will pause and prompt you in the terminal** (`Approve this action? [y/N]`)
+  before actually sending an email, creating a calendar reminder, or deleting a
+  ticket — type `y` to let it proceed or anything else to reject that one action.
+
+```bash
 # from the project root -- the evaluation scripts import agent.support_agent,
 # so PYTHONPATH needs to include the project root
 export PYTHONPATH=.
@@ -63,15 +55,23 @@ python3 evaluation/strategy_comparison.py 60            # same, on the 60-email 
 
 ## LLM provider
 
-The default provider is **Groq** (`LLM_PROVIDER=groq`), using `openai/gpt-oss-120b`.
-Set the `LLM_PROVIDER` environment variable to `local` to run entirely offline instead,
-using a quantized Qwen2.5-7B-Instruct model served through `llama-cpp-python` (weights
-are downloaded automatically from Hugging Face on first run, cached after that).
+The agent runs on **Groq** by default (`LLM_PROVIDER=groq`, which you don't need to
+set explicitly), using the `openai/gpt-oss-120b` model. To set it up:
 
-```bash
-export LLM_PROVIDER=groq   # default -- needs GROQ_API_KEY
-export LLM_PROVIDER=local  # no API key needed, but slower and requires more disk/RAM
-```
+1. Sign up at [console.groq.com](https://console.groq.com) and create an API key.
+2. Set it as an environment variable:
+
+   ```bash
+   export GROQ_API_KEY=your_key_here
+   ```
+
+3. That's it — run `python3 support_agent.py` and it'll pick it up automatically.
+
+You can pin a different Groq model with `export GROQ_MODEL=...` if you want.
+
+(There's also an offline local-model path, `LLM_PROVIDER=local`, for running without
+an API key — see `agent/local_llm.py` if you want to use it, it needs an extra
+`llama-cpp-python` build step not covered here.)
 
 ## Where API keys go
 
@@ -131,3 +131,25 @@ You can override any of these paths with environment variables instead of the de
 **None of the `*_credentials.json` or `*_token.json` files should ever be committed** —
 they're in `.gitignore`, but double-check before pushing if you're setting this up in a
 repo that already has committed copies.
+
+## Verifying it's working
+
+The easiest way to confirm all three integrations are wired up correctly is to sign
+in to the Gmail account the agent is pointed at (currently `ssaw56502@gmail.com` —
+get the password from whoever set it up, it isn't stored in this repo) and check each
+service directly:
+
+- **Gmail**: send a test email to that address (e.g. with
+  `mcp_servers/send_test_emails.py --limit 1`), then run `support_agent.py`. Refresh
+  the inbox — the email should disappear from Unread, and if the agent decided to
+  reply, a sent reply should appear in Sent.
+- **Calendar**: for an URGENT email, the agent schedules a follow-up reminder — check
+  [Google Calendar](https://calendar.google.com) for a new event a few hours out after
+  a run.
+- **Notion**: check the configured ticket database for a new page after a run that
+  logged a ticket — `list_tickets` (or just the Notion UI) should show it with the
+  right category/priority/status.
+
+If any of these don't show up, re-check the credentials/env vars above, and watch the
+terminal output from `support_agent.py` — it logs every tool call and its result as it
+runs, which usually makes it obvious which step failed.
