@@ -131,25 +131,3 @@ You can override any of these paths with environment variables instead of the de
 **None of the `*_credentials.json` or `*_token.json` files should ever be committed** —
 they're in `.gitignore`, but double-check before pushing if you're setting this up in a
 repo that already has committed copies.
-
-## Verifying it's working
-
-The easiest way to confirm all three integrations are wired up correctly is to sign
-in to the Gmail account the agent is pointed at (currently `ssaw56502@gmail.com` —
-get the password from whoever set it up, it isn't stored in this repo) and check each
-service directly:
-
-- **Gmail**: send a test email to that address (e.g. with
-  `mcp_servers/send_test_emails.py --limit 1`), then run `support_agent.py`. Refresh
-  the inbox — the email should disappear from Unread, and if the agent decided to
-  reply, a sent reply should appear in Sent.
-- **Calendar**: for an URGENT email, the agent schedules a follow-up reminder — check
-  [Google Calendar](https://calendar.google.com) for a new event a few hours out after
-  a run.
-- **Notion**: check the configured ticket database for a new page after a run that
-  logged a ticket — `list_tickets` (or just the Notion UI) should show it with the
-  right category/priority/status.
-
-If any of these don't show up, re-check the credentials/env vars above, and watch the
-terminal output from `support_agent.py` — it logs every tool call and its result as it
-runs, which usually makes it obvious which step failed.
